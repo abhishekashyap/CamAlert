@@ -39,5 +39,3 @@ Thumbs.db
 # Dependency Directory #
 ########################
 node_modules/
-*.xml
-.idea/CamAlert.iml
