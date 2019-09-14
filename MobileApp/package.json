@@ -6,6 +6,6 @@
   "author": "Dehati coders",
   "license": "MIT",
   "dependencies": {
-    "ionic": "^5.2.8"
-  },
+    "cordova": "^9.0.0"
+  }
 }
