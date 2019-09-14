@@ -1,0 +1,11 @@
+{
+  "name": "MobileApp",
+  "version": "1.0.0",
+  "description": "Mobile  app for CamAlert",
+  "main": "index.js",
+  "author": "Dehati coders",
+  "license": "MIT",
+  "dependencies": {
+    "ionic": "^5.2.8"
+  },
+}
