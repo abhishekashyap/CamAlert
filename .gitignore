@@ -41,3 +41,4 @@ Thumbs.db
 node_modules/
 *.xml
 .idea/CamAlert.iml
+PhotoshopResources/
