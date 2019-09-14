@@ -46,11 +46,24 @@ body {
 /* Portrait layout (default) */
 
 .container {
-    width: 300px;
-    height: 200px;
+    width: 100vw;
+    height: 50vh;
     display: block;
     position: relative;
     overflow: hidden;
+}
+
+#cont1
+{
+    background-image:url(../img/alexandru-acea-TMkrN9QZERw-unsplash.jpg);
+    background-position: center;
+    background-size: cover;
+}
+#cont2
+{
+    background-image:url(../img/alexandre-debieve-L97Hsnt-mAI-unsplash.png);
+    background-position: center;
+    background-size:cover;
 }
 
 .container img {
