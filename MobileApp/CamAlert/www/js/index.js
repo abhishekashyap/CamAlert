@@ -48,6 +48,13 @@ function openNav() {
   }
   
   function closeNav() {
+    window.addEventListener('mouseup',function(event){
+    var closeMenu = document.getElementById('sideMenu');
+    if(event.target != closeMenu && event.target.parentNode != closeMenu){       
+        document.getElementById("sideMenu").style.width = "0";
+        document.getElementById("main").style.marginLeft= "0";
+    }
+    });  
     document.getElementById("sideMenu").style.width = "0";
     document.getElementById("main").style.marginLeft= "0";
   }
