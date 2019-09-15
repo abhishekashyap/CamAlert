@@ -1,25 +1,9 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
 
 <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
     <!--
         Customize this policy to fit your own app's needs. For more guidance, see:
             https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
@@ -29,25 +13,107 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
-    <link rel="stylesheet" type="text/css" href="css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="./css/index.css">
+    
     <title>Hello World</title>
+    <style type="text/css"> 
+        .navmenu {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #5677fc;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+        }
+
+        .navmenu a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: white;
+        display: block;
+        transition: 0.3s;
+        }
+
+        .navmenu a:hover {
+        color: #f1f1f1;
+        }
+
+        .navmenu .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+        }
+
+        #main {
+        transition: margin-left .5s;
+        padding: 16px;
+        }
+
+        @media screen and (max-height: 450px) {
+        .navmenu {padding-top: 15px;}
+        .navmenu a {font-size: 18px;}
+        } 
+        </style> 
 </head>
 
 <body>
     <div class="app">
+        
+        <!--Navbar Starts-->
+        
+        <div id="sideMenu" class="navmenu">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#">Profile</a>
+            <a href="#">Some more stuff</a>
+            <a href="#">About us?</a>
+        </div>
+    
+        <!--Navbar Ends-->
+        
+    
+        
         <div class="container" id="cont1">
-            <h1 style="color: white; font-size: 6vh; margin-top: 41vh ;font-family: 'Signika', sans-serif;">Record</h1>
+            
+            <!--Navbar Menu-->
+            <span style="color:white;font-size:30px;cursor:pointer;margin-left: 9px;" onclick="openNav()">&#9776;</span>
+
+            <h1 style="color: white; font-size: 6vh; margin-top: 36vh ;font-family: 'Signika', sans-serif;">Record</h1>
+        
         </div>
+  
         <div class="container" id="cont2">
-            <h1 style="color: white; font-size: 6vh; margin-top: 2vh ;font-family: 'Signika', sans-serif;">Monitor</h1>
+        
+            <h1 style="color: white; font-size: 6vh; margin-top: 1.5vh ;font-family: 'Signika', sans-serif;">Monitor</h1>
+        
         </div>
+
     </div>
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
+    
+    <script>
+        function openNav() {
+          document.getElementById("sideMenu").style.width = "250px";
+          document.getElementById("main").style.marginLeft = "250px";
+        }
+        
+        function closeNav() {
+          document.getElementById("sideMenu").style.width = "0";
+          document.getElementById("main").style.marginLeft= "0";
+        }
+    </script>
+        
+    <script type="text/javascript" src="./js/index.js"></script>
+
 </body>
 
 </html>

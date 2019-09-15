@@ -42,16 +42,35 @@ body {
     width: 100%;
 }
 
+@import url('https://fonts.googleapis.com/css?family=Signika&display=swap');
 
 /* Portrait layout (default) */
 
 .container {
-    width: 300px;
-    height: 200px;
+    width: 100vw;
+    height: 50vh;
     display: block;
     position: relative;
     overflow: hidden;
 }
+
+#cont1 {
+    background-image: url(../img/video-1613996_1280.png);
+    background-position: center;
+    background-size: cover;
+}
+
+#cont2 {
+    background-image: url(../img/5431965.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+
+/* .bottom-txt {
+    position: absolute;
+    bottom: 5vh;
+} */
 
 .container img {
     position: absolute;
