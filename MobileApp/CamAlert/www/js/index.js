@@ -43,8 +43,8 @@ var app = {
     }
 };
 function openNav() {
-    document.getElementById("sideMenu").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
+    document.getElementById("sideMenu").style.width = "65vw";
+    document.getElementById("main").style.marginLeft = "65vw";
   }
   
   function closeNav() {

@@ -4,64 +4,42 @@
 <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta content="utf-8" http-equiv="encoding">
-    <!--
-        Customize this policy to fit your own app's needs. For more guidance, see:
-            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
-        Some notes:
-            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-                * Enable inline JS: add 'unsafe-inline' to default-src
-        -->
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
-    
     <link rel="stylesheet" type="text/css" href="./css/index.css">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <title>Hello World</title>
-    
+
 </head>
 
 <body>
     <div class="app">
-        
+
         <!--Navbar Starts-->
-        
         <div id="sideMenu" class="navmenu">
-            
-            <div>
-                <!--Future profile page layout?-->
-
-            </div>
-
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="#">Profile</a>
-            <a href="#">Some more stuff</a>
-            <a href="#">About us?</a>
+            <a style="font-family: 'Signika', sans-serif" href="#"><i class="fa fa-home">  Home</i></a>
+            <a style="font-family: 'Signika', sans-serif" href="#"><i class="fa fa-camera"></i>  Record</a>
+            <a style="font-family: 'Signika', sans-serif" href="#"><i class="fa fa-desktop"></i>  Monitor</a>
+            <a class="contact-us" style="font-family: 'Signika', sans-serif" href="#"><i class="fa fa-user"></i>  Contact Us</a>
         </div>
-    
-        <!--Navbar Ends-->
-        
-    
-        
-        <div class="container" id="cont1">
-            
-            <!--Navbar Menu-->
-            <span style="color:white;font-size:30px;cursor:pointer;margin-left: 9px;" onclick="openNav()">&#9776;</span>
 
-            <h1 style="color: white; font-size: 6vh; margin-top: 36vh ;font-family: 'Signika', sans-serif;">Record</h1>
-        
+        <!--Navbar Ends-->
+
+        <!-- Main options in the home page -->
+        <div class="container" id="cont1">
+            <!-- Navbar left -->
+            <span style="color:white;font-size:5vh; cursor:pointer; margin: 2vh;" onclick="openNav()">&#9776;</span>
+            <h1 style="color: white; font-size: 6vh; margin-top: 36vh ;font-family: 'Signika', sans-serif;">RECORD</h1>
         </div>
-  
         <div class="container" id="cont2">
-        
-            <h1 style="color: white; font-size: 6vh; margin-top: 1.5vh ;font-family: 'Signika', sans-serif;">Monitor</h1>
-        
+            <h1 style="color: white; font-size: 6vh; margin-top: 1.5vh ;font-family: 'Signika', sans-serif;">MONITOR</h1>
         </div>
 
     </div>
-        
+
     <script type="text/javascript" src="./js/index.js"></script>
 
 </body>
