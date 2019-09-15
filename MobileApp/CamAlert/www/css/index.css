@@ -26,6 +26,15 @@ body {
 @import url('https://fonts.googleapis.com/css?family=Signika&display=swap');
 
 /*Navbar Styling*/
+.sideMenustyle{
+    color:white;
+    font-size:5vh; 
+    cursor:pointer;
+    margin: 2vh;
+}
+.navmenuchild{
+    font-family: 'Signika', sans-serif
+}
 
 .navmenu {
     height: 100%;
