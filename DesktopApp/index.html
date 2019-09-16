@@ -1,31 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-</head>
-<body>
-    <div id="app">
-        <div>
-            <h1>Video will go here</h1>
-            <input type="file" accept="video/*;capture=camcorder">
-            <img id="image" src="" alt="">
-        </div>
-        
-    </div>
-
+  </head>
+  <body>
+      <h1>Hello</h1>
+    <img id="image" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
     <script>
-        // const socket = io.connect('http://localhost:3000');
-        const socket = io.connect('192.168.43.236:3000');
-        socket.on('image', (data) => {
-            console.log('data', data);
-        });
-
-        const img = document.getElementById('image');
-        img.src = `data:image/jpeg;base64,${image}`
+      const socket = io.connect("http://localhost:3000");
+      // const socket = io.connect('192.168.43.236:3000');
+      socket.on("image", data => {
+        console.log("data", data);
+        const imgElm = document.getElementById("image");
+        imgElm.src = `data:image/jpeg;base64,${image}`
+      });
     </script>
-</body>
+  </body>
 </html>
