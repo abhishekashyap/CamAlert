@@ -45,7 +45,7 @@ body {
     left: 0;
     background-color: #5677fc;
     overflow-x: hidden;
-    transition: 0.5s;
+    transition: ease-in-out 0.3s;
     padding-top: 5vh;
     font-size: 4vh;
 }
