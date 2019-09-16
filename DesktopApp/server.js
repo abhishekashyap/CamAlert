@@ -13,10 +13,10 @@ require("dns").lookup(require("os").hostname(), (err, add, fam) => {
 
 function getIp(add) {
   ip = add;
-  console.log(ip); //Wrong IP val
+  console.log(ip);
 }
 
-const cam = new cv.VideoCapture(0);
+
 // app.use("/assets", express.static(__dirname + '/assets'));
 app.use(device.capture());
 app.get("/hello", function(req, res) {
@@ -31,7 +31,7 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
   device_type = req.device.type;
   
-    
+    const cam = new cv.VideoCapture(0);
     setInterval(() => {
       const frame = cam.read();
       const image = cv.imencode(".jpg", frame).toString("base64");
