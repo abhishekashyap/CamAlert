@@ -29,18 +29,20 @@ app.get("/hello", function(req, res) {
 app.get("/", (req, res) => {
   console.log("accessed");
   res.sendFile(path.join(__dirname, "index.html"));
-  device_type = req.device.type;
-  
-    const cam = new cv.VideoCapture(0);
-    setInterval(() => {
-      const frame = cam.read();
-      const image = cv.imencode(".jpg", frame).toString("base64");
-      io.emit("image", image);
-    }, 1000);
+  //device_type = req.device.type;
   
 });
+
+
+const cam = new cv.VideoCapture(0);
+setInterval(() => {
+  const frame = cam.read();
+  const image = cv.imencode(".jpg", frame).toString("base64");
+  io.emit("image", image);
+}, 1000);
+
 
 console.log(typeof(ip));
 // app.listen(3000);
 // Listening at LAN as well as well as localhost
-app.listen(3000, "192.168.43.236" || "127.0.0.1");
+app.listen(3000, ip || "127.0.0.1");
