@@ -9,35 +9,29 @@
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
     <link rel="stylesheet" type="text/css" href="./css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <title>Hello World</title>
-
+    <title>Fire the Theif</title>
 </head>
 
 <body>
-    <div class="app">
+    <!--Navbar Starts-->
+    <div id="sideMenu" class="navmenu">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a class="navmenuchild" href="#"><i class="fa fa-home"></i>  Home</a>
+        <a class="navmenuchild" href="#"><i class="fa fa-video-camera"></i>  Record</a>
+        <a class="navmenuchild" href="#"><i class="fa fa-desktop"></i>  Monitor</a>
+        <a class="navmenuchild" style="margin-top: 68vh;" href="#"><i class="fa fa-user"></i>  Contact Us</a>
+    </div>
+    <!--Navbar Ends-->
 
-        <!--Navbar Starts-->
-        <div id="sideMenu" class="navmenu">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a class="navmenuchild" href="#"><i class="fa fa-home"></i>  Home</a>
-            <a class="navmenuchild" href="#"><i class="fa fa-video-camera"></i>  Record</a>
-            <a class="navmenuchild" href="#"><i class="fa fa-desktop"></i>  Monitor</a>
-            <a class="navmenuchild" style="margin-top: 68vh;" href="#"><i class="fa fa-user"></i>  Contact Us</a>
-        </div>
-        <!--Navbar Ends-->
+    <!-- Main options in the home page -->
+    <div class="container" id="cont1">
+        <!-- Navbar Menu -->
+        <span class="sideMenustyle" onclick="openNav()">&#9776;</span>
+        <h1 class="heading" style="margin-top: 36vh">RECORD</h1>
+    </div>
 
-        <!-- Main options in the home page -->
-        <div class="container" id="cont1">
-            <!-- Navbar Menu -->
-            <span class="sideMenustyle" onclick="openNav()">&#9776;</span>
-            <h1 style="color: white; font-size: 6vh; margin-top: 36vh ;font-family: 'Signika', sans-serif;">RECORD</h1>
-        </div>
-
-        <div class="container" id="cont2">
-            <h1 style="color: white; font-size: 6vh; margin-top: 1.5vh ;font-family: 'Signika', sans-serif;">MONITOR</h1>
-        </div>
-
+    <div class="container" id="cont2">
+        <h1 class="heading" style="margin-top: 1.5vh">MONITOR</h1>
     </div>
 
     <script type="text/javascript" src="./js/index.js"></script>

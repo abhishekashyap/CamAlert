@@ -26,14 +26,16 @@ body {
 @import url('https://fonts.googleapis.com/css?family=Signika&display=swap');
 
 /*Navbar Styling*/
-.sideMenustyle{
-    color:white;
-    font-size:5vh; 
-    cursor:pointer;
+
+.sideMenustyle {
+    color: white;
+    font-size: 5vh;
+    cursor: pointer;
     margin: 2vh;
 }
-.navmenuchild{
-    font-family: 'Signika', sans-serif
+
+.navmenuchild {
+    font-family: 'century gothic', Arial, sans-serif;
 }
 
 .navmenu {
@@ -77,6 +79,12 @@ body {
     overflow: hidden;
 }
 
+.heading {
+    color: white;
+    font-size: 6vh;
+    font-family: 'Signika', sans-serif;
+}
+
 #cont1 {
     background-image: url(../img/video-1613996_1280.png);
     background-position: center;
@@ -96,74 +104,11 @@ body {
     width: 100%;
 }
 
-.app {
-    /* background:url(../img/logo.png) no-repeat center top; 170px x 200px */
-    /* position: absolute; */
-    /* position in the center of the screen */
-    /* left: 50%; */
-    /* top: 50%; */
-    /* height: 50px; */
-    /* text area height */
-    /* width: 225px; */
-    /* text area width */
-    /* text-align: center; */
-    /* padding: 180px 0px 0px 0px; */
-    /* image height is 200px (bottom 20px are overlapped with text) */
-    /* margin: -115px 0px 0px -112px; */
-    /* offset vertical: half of image height and text area height */
-    /* offset horizontal: half of text area width */
-}
-
-
-/* Landscape layout (with min-width) */
-
-
-/* @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
-    .app {
-        background-position: left center;
-        padding: 75px 0px 75px 170px;
-        /* padding-top + padding-bottom + text area = image height */
-
-
-/* margin: -90px 0px 0px -198px;s */
-
-
-/* offset vertical: half of image height */
-
-
-/* }
-    } */
-
-
-/* offset horizontal: half of image width and text area width */
+.app {}
 
 h1 {
     font-weight: normal;
     text-align: center;
-}
-
-@keyframes fade {
-    from {
-        opacity: 1.0;
-    }
-    50% {
-        opacity: 0.4;
-    }
-    to {
-        opacity: 1.0;
-    }
-}
-
-@-webkit-keyframes fade {
-    from {
-        opacity: 1.0;
-    }
-    50% {
-        opacity: 0.4;
-    }
-    to {
-        opacity: 1.0;
-    }
 }
 
 .blink {
