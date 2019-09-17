@@ -1,5 +1,7 @@
 * {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    padding:0;
+    margin:0;
     /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
 
@@ -27,58 +29,86 @@ body {
 
 /*Navbar Styling*/
 
-.sideMenustyle {
+#NavButton {
     color: white;
     font-size: 5vh;
     cursor: pointer;
     margin: 2vh;
+    display:block;
+    position: absolute;
+    z-index:1;
+    top:0.5vh;
 }
 
-.navmenuchild {
-    font-family: 'century gothic', Arial, sans-serif;
-}
+
 
 .navmenu {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
+    position:relative;
+    z-index: 3;
+    display:block;
+    width:0;
+    height:100vh;
     background-color: #5677fc;
-    overflow-x: hidden;
-    transition: ease-in-out 0.3s;
-    padding-top: 5vh;
+    overflow:hidden;
+    
+    box-shadow: 40vw 0vw 30vh  rgba(0, 0, 0, 0.616);
     font-size: 4vh;
+    transition: all 0.1s;
+   
+}
+#navback{
+    z-index:3;
+    width:50vw;
+    height:100vh;
+    
+   display:block;
+    position:relative;
 }
 
 .navmenu a {
-    padding: 1vh 1vh 1vh 4vh;
+    
     text-decoration: none;
-    font-size: 4vh;
+   
     color: white;
     display: block;
-    transition: 0.3s;
+    transition: 0.5s;
+    padding: 1vh 1vh 1vh 3vh;
+    font-family: 'century gothic', Arial, sans-serif;
+    
+}
+.closebtn{
+    position:absolute;
+    
+    margin-bottom:1vh;
+    font-size: 5vh;
+    z-index:3;
+    right:0.5vh;
 }
 
-.navmenu .closebtn {
-    position: absolute;
-    top: 0;
-    right: 2vh;
-    font-size: 5vh;
-}
 
 
 /* Portrait layout (default) */
 
 .container {
     width: 100vw;
-    height: 50vh;
-    display: block;
+    height: 100vh;
+    display: flex;
     position: relative;
     overflow: hidden;
+    flex-direction:column;
 }
-
+#nav-container
+{
+    height:100vh;
+    width:100vw;
+    left:0;
+    
+    overflow:hidden;
+    display:none;
+    position:absolute;
+    z-index:2;
+    flex-direction:row;
+}
 .heading {
     color: white;
     font-size: 6vh;
@@ -89,22 +119,23 @@ body {
     background-image: url(../img/video-1613996_1280.png);
     background-position: center;
     background-size: cover;
+    height:50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 #cont2 {
     background-image: url(../img/5431965.jpg);
     background-position: center;
     background-size: cover;
+    height:50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
-.container img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-}
 
-.app {}
 
 h1 {
     font-weight: normal;
@@ -114,4 +145,22 @@ h1 {
 .blink {
     animation: fade 3000ms infinite;
     -webkit-animation: fade 3000ms infinite;
+}
+
+#Rec{
+    position: absolute;
+    width:100vw;
+    top:0;
+    background-color:bisque;
+}
+#Mon
+{
+    position:absolute;
+    width:100vw;
+    bottom:0;
+    background-color:rebeccapurple;
+}
+#contactUs-link{
+    position: absolute;
+    bottom:0.5vh;
 }

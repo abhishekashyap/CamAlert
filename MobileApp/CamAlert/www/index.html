@@ -10,30 +10,45 @@
     <link rel="stylesheet" type="text/css" href="./css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Fire the Theif</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
 </head>
 
 <body>
     <!--Navbar Starts-->
-    <div id="sideMenu" class="navmenu">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a class="navmenuchild" href="#"><i class="fa fa-home"></i>  Home</a>
-        <a class="navmenuchild" href="#"><i class="fa fa-video-camera"></i>  Record</a>
-        <a class="navmenuchild" href="#"><i class="fa fa-desktop"></i>  Monitor</a>
-        <a class="navmenuchild" style="margin-top: 68vh;" href="#"><i class="fa fa-user"></i>  Contact Us</a>
+    <div id="nav-container">
+        <div id="sideMenu" class="navmenu">
+            <a href="#" class="closebtn">&times;</a>
+            <br />
+                <a class="nav-links" href="#" id="home"><i class="fa fa-home"></i>  Home</a>
+
+                <a class="nav-links" href="#" id="Record"><i class="fa fa-video-camera"></i>  Record</a>
+            
+                <a class="nav-links" href="#" id="Monitor"><i class="fa fa-desktop"></i>  Monitor</a>
+            
+                <a class="nav-links" id="contactUs-link"  href="#" id="ContactUs"><i class="fa fa-user"></i>  Contact Us</a>
+            
+        </div>
+       <div id="navback"></div>
     </div>
     <!--Navbar Ends-->
-
+    <span id="NavButton">&#9776;</span>
     <!-- Main options in the home page -->
-    <div class="container" id="cont1">
-        <!-- Navbar Menu -->
-        <span class="sideMenustyle" onclick="openNav()">&#9776;</span>
-        <h1 class="heading" style="margin-top: 36vh">RECORD</h1>
-    </div>
+    <div class="container">
+        <div id="cont1">
+            <h1 class="heading" style="margin-top: 36vh">RECORD</h1>
+        </div>
 
-    <div class="container" id="cont2">
-        <h1 class="heading" style="margin-top: 1.5vh">MONITOR</h1>
+        <div id="cont2">
+            <h1 class="heading" style="margin-top: 1.5vh">MONITOR</h1>
+        </div>
     </div>
+    <div id="Rec">
 
+    </div>
+    <div id="Mon">
+
+    </div>
     <script type="text/javascript" src="./js/index.js"></script>
 
 </body>
