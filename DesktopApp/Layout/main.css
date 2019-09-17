@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 body {
     margin: 0;
 }
@@ -19,14 +20,18 @@ body {
     background-image: url("../img/record.png");
 }
 
+#cont3 {
+    background-image: url("../img/upload.jpg");
+}
+
 .colorbox {
     background-position: center;
-    background-size: cover;
+    background-size: 100% 100%;
     height: 100vh;
-    width: 50vw;
+    width: 100vw;
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
-    transition: all 0.5s;
+    transition: all 0.3s;
 }
 
 .colorbox:hover {
@@ -38,6 +43,8 @@ body {
 /* Text CSS */
 
 .text {
+    margin-top: 3vh; 
+    font-family: 'Roboto', sans-serif;
     display: none;
     font-size: 5vw;
     color: white;

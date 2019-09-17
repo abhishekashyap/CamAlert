@@ -12,6 +12,7 @@
     "electron": "^6.0.9",
     "express": "^4.17.1",
     "express-device": "^0.4.2",
+    "express-fileupload": "^1.1.6-alpha.4",
     "opencv4nodejs": "^5.2.0",
     "socket.io": "^2.2.0"
   }
