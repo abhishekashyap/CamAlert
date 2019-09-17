@@ -39,6 +39,18 @@ body {
     z-index:1;
     top:0.5vh;
 }
+#BackButton
+{
+    color: white;
+    font-size: 5vh;
+    cursor: pointer;
+    margin: 2vh;
+    display:none;
+    position: absolute;
+    z-index:1;
+    top:0.5vh;
+    right:1vh;
+}
 
 
 

@@ -39,7 +39,19 @@ $(document).ready(function () {
        
     });
 
-
+    $("#BackButton").click(function(){
+        if($("#Mon").css("height")!='0px')
+        {
+            $("#Mon").animate({
+                height:"0vh"
+            });
+        }
+        else{
+            $("#Rec").animate({
+                height:"0vh"
+            });
+        }
+    })
     /*|||||||||||||||||||||||||||||||||||--close-Navbar-Through-closeButton-|||||||||||||||||||||||||||||||||||||*/
     $(".closebtn").click(function()
     {   $("#sideMenu a").hide(1000); // since the animation effect on close is not smooth so i made the text disappear to make it smooth any better fix is appreciated
@@ -82,6 +94,7 @@ $(document).ready(function () {
         $("#Rec").animate({
             height:'100vh'
         });
+        $("#BackButton").show();
         if($("#Mon").css("height")!='0px')
         {
             $("#Mon").animate({
@@ -99,6 +112,7 @@ $(document).ready(function () {
         $("#Mon").animate({
             height:'100vh'
         });
+        $("#BackButton").show();
         if($("#Rec").css("height")!='0px')
         {
             $("#Rec").animate({
@@ -116,12 +130,14 @@ $(document).ready(function () {
         $("#Rec").animate({
             height:'100vh'
         });
+        $("#BackButton").show();
     });
     /*|||||||||||||||||||||||||||||||||||--To-Open-MonitorPane--|||||||||||||||||||||||||||||||||||||*/
     $("#cont2").click(function(){
         $("#Mon").animate({
             height:'100vh'
         }); 
+        $("#BackButton").show();
     });
     
     
