@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+}
+
+
+/* Div CSS */
+
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+#cont1 {
+    background-image: url("../img/monitor.jpg");
+}
+
+#cont2 {
+    background-image: url("../img/record.png");
+}
+
+.colorbox {
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    width: 50vw;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    transition: all 0.5s;
+}
+
+.colorbox:hover {
+    -webkit-filter: grayscale(0%);
+    filter: grayscale(0%);
+}
+
+
+/* Text CSS */
+
+.text {
+    display: none;
+    font-size: 5vw;
+    color: white;
+    text-align: center;
+}
+
+.colorbox:hover .text {
+    display: block;
+}
