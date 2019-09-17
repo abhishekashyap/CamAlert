@@ -35,7 +35,7 @@ app.get('/', (req, res) => {
   console.log('accessed');
   res.sendFile(path.join(__dirname, 'index.html'));
   //device_type = req.device.type;
-  
+
 });
 
 
@@ -43,6 +43,18 @@ app.get('/', (req, res) => {
 setInterval(() => {
   const frame = wCap.read();
   const image = cv.imencode('.jpg', frame).toString('base64');
+  // a base64 string of a gif image
+
+
+  // The absolute path of the new file with its name
+  var filepath = "image.jpg";
+
+  // Save with a buffer as content from a base64 image
+  fs.writeFile(filepath, new Buffer(image, "base64"), (err) => {
+    if (err) throw err;
+
+    console.log("The file was succesfully saved!");
+  });
   io.emit('image', image);
 }, 1000);
 
