@@ -39,18 +39,17 @@ app.get('/', (req, res) => {
 });
 
 
+var num = 0;          // Used to initialize image number
 
 setInterval(() => {
   const frame = wCap.read();
   const image = cv.imencode('.jpg', frame).toString('base64');
-  // a base64 string of a gif image
-
 
   // The absolute path of the new file with its name
-  var filepath = "image.jpg";
+  var filepath = "TempImage";
 
   // Save with a buffer as content from a base64 image
-  fs.writeFile(filepath, new Buffer(image, "base64"), (err) => {
+  fs.writeFile(filepath + num++ + '.jpg', new Buffer(image, "base64"), (err) => {
     if (err) throw err;
 
     console.log("The file was succesfully saved!");
