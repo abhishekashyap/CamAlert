@@ -47,6 +47,6 @@ setInterval(() => {
 
 
 //console.log(typeof(ip));
- app.listen(3000);
+server.listen(3000);
 // Listening at LAN as well as well as localhost
 //app.listen(3000, ip || "127.0.0.1");
