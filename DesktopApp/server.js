@@ -10,7 +10,7 @@ const io = require('socket.io')(server);
 
 const wCap = new cv.VideoCapture(0);
 
-// Getting local Ip 
+// Getting local Ip
 var ip;
 require('dns').lookup(require('os').hostname(), (err, add, fam) => {
   getIp(add);
