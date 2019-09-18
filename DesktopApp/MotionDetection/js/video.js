@@ -68,14 +68,14 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   function successCallback(stream) {
-    if (video.mozCaptureStream) {
-      video.mozSrcObject = stream;
-    } else {
-      video.src = (window.URL && window.URL.createObjectURL(stream)) || stream;
+      try {
+        video.srcObject = stream;
+      } catch (error) {
+        video.src = URL.createObjectURL(stream);
+      }
     }
     video.play();
     this.video = video;
-  }
 
   function errorCallback(error) {
     alert("Unable to get webcam stream.");
