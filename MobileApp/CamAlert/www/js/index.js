@@ -45,25 +45,32 @@ function closeMenu(){
     },
     function(){$("#nav-container").hide(1000)});
 }
+
+function backAnimate(){
+    $("#BackButton").click(function(){
+        $("#Mon").animate({
+            height:"0vh"
+        });
+    
+        $("#Rec").animate({
+            height:"0vh"
+        });
+        $("#BackButton").hide(200);
+    })
+}
 /*|||||||||||||||||||||||||||||||||||--Navbar Menu Options--|||||||||||||||||||||||||||||||||||||*/
 
 function navOptionSelect(x) {            //Menu Animations
     
-    
-    
     if(x==1){                           //to open Home menu
         $("#BackButton").hide();
-        if($("#Mon").css("height")!='0px')
-        {
-            $("#Mon").animate({
-                height:"0vh"
-            });
-        }
-        else{
-            $("#Rec").animate({
-                height:"0vh"
-            });
-        }
+        $("#Mon").animate({
+            height:"0vh"
+        });
+        $("#Rec").animate({
+            height:"0vh"
+        });
+        
         $("#sideMenu a").hide(1000);
         $("#sideMenu").animate({
             width:'0px'
@@ -71,18 +78,24 @@ function navOptionSelect(x) {            //Menu Animations
     }
 
     if(x == 2){
-    $("#BackButton").show(200);                         //to open Record menu
+    $("#BackButton").show(200);          //to open Record menu
     $("#Rec").animate({
         height:'100vh'
     });
+    $("#Mon").animate({
+        height:"0vh"
+    });
     }
     
-    if(x == 3)                          //to open Monitor menu
+    if(x == 3){                          //to open Monitor menu
     $("#BackButton").show(200);
     $("#Mon").animate({
         height:'100vh'
     });
-
+    $("#Rec").animate({
+        height:"0vh"
+    });
+    }   
     
     if($("#Rec").css("height")!='0px')
     {
@@ -90,58 +103,7 @@ function navOptionSelect(x) {            //Menu Animations
             height:"0vh"
         });
     }
-    
-    $("#sideMenu a").hide(1000);
-    $("#sideMenu").animate({
-        width:'0px'
-    }, function(){$("#nav-container").hide(1000)});
+    closeMenu();
 };
-
-
-$(document).ready(function () {
-
-    $("#BackButton").click(function(){
-        if($("#Mon").css("height")!='0px')
-        {
-            $("#Mon").animate({
-                height:"0vh"
-            });
-        }
-        else{
-            $("#Rec").animate({
-                height:"0vh"
-            });
-        }
-        $("#BackButton").hide(200);
-    })
-    
-    
-    /*|||||||||||||||||||||||||||||||||||--To-Goto-HomePage--|||||||||||||||||||||||||||||||||||||*/
-    $("#home").click(function(){
-        
-    });
-
-    /*|||||||||||||||||||||||||||||||||||--To-Goto-RecordPane--|||||||||||||||||||||||||||||||||||||*/
-    
-    /*|||||||||||||||||||||||||||||||||||--To-Goto-MonitorPane--|||||||||||||||||||||||||||||||||||||*/
-
-
-    /*|||||||||||||||||||||||||||||||||||--To-Open-RecordPane--|||||||||||||||||||||||||||||||||||||*/
-    $("#cont1").click(function(){
-        $("#Rec").animate({
-            height:'100vh'
-        });
-        $("#BackButton").show(200);
-    });
-    /*|||||||||||||||||||||||||||||||||||--To-Open-MonitorPane--|||||||||||||||||||||||||||||||||||||*/
-    $("#cont2").click(function(){
-        $("#Mon").animate({
-            height:'100vh'
-        }); 
-        $("#BackButton").show(200);
-    });
-    
-    
-});
   
 app.initialize();

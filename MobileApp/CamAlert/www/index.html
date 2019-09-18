@@ -31,26 +31,33 @@
         </div>
        <div id="navback" onclick="closeMenu()"></div>
     </div>
+
     <!--Navbar Ends-->
     <span id="NavButton" onclick="navAnimate()">&#9776;</span>
-    <span id="BackButton">&larr;</span>
+    <span id="BackButton" onclick="backAnimate()">&larr;</span>
+    
     <!-- Main options in the home page -->
     <div class="container">
-        <div id="cont1">
+        
+        <div id="cont1" onclick="navOptionSelect(2)">
             <h1 class="heading" style="margin-top: 36vh">RECORD</h1>
         </div>
 
-        <div id="cont2">
+        <div id="cont2" onclick="navOptionSelect(3)">
             <h1 class="heading" style="margin-top: 1.5vh">MONITOR</h1>
         </div>
+    
     </div>
+    
     <div id="Rec">
 
     </div>
+
     <div id="Mon">
 
     </div>
     
+
     <script type="text/javascript" src="./js/index.js"></script>
 
 </body>
