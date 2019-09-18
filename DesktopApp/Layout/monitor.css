@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #6fece6;
+}
+
+.left-nav {
+    float: left;
+}
+
+.right-nav {
+    float: right;
+}
+
+li a {
+    display: block;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 1em;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #1fc0b8;
+}
+
+.active {
+    background-color: #1fc0b8;
+}
+
+.monitor {
+    height: 100vh;
+    width: auto;
+    background-color: #ecd96a;
+    overflow: hidden;
+}

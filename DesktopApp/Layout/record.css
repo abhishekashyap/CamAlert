@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #ece46f;
+}
+
+.left-nav {
+    float: left;
+}
+
+.right-nav {
+    float: right;
+}
+
+li a {
+    display: block;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 1em;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #6aecec;
+}
+
+.active {
+    background-color: #6aecec;
+}
+
+.record {
+    height: 100vh;
+    width: auto;
+    background-color: #ec6a6a;
+    overflow-x: hidden;
+}
