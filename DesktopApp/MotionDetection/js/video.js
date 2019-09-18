@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
   video.setAttribute("style", "display:none;");
   video.width = 320;
   video.height = 240;
+  video.muted = "muted";
 
   // check if browser supports getUserMedia - yes we are looking at you Safari!
   navigator.getUserMedia =
