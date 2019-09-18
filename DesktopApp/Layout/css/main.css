@@ -17,22 +17,22 @@ a {
 }
 
 #cont1 {
-    background-image: url("../img/monitor.jpg");
+    background-image: url("../../img/monitor.jpg");
 }
 
 #cont2 {
-    background-image: url("../img/record.png");
+    background-image: url("../../img/record.png");
 }
 
 #cont3 {
-    background-image: url("../img/upload.jpg");
+    background-image: url("../../img/upload.jpg");
 }
 
 .colorbox {
     background-position: center;
     background-size: 100% 100%;
     height: 100vh;
-    width: 100vw;
+    width: 33.33vw;
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
     transition: all 0.3s;
@@ -47,7 +47,7 @@ a {
 /* Text CSS */
 
 .text {
-    margin-top: 3vh; 
+    padding-top: 3vh;
     font-family: 'Roboto', sans-serif;
     display: none;
     font-size: 5vw;

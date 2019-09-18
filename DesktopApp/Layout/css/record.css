@@ -7,7 +7,7 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #6fece6;
+    background-color: rgb(85, 94, 91);
 }
 
 .left-nav {
@@ -27,16 +27,16 @@ li a {
 }
 
 li a:hover:not(.active) {
-    background-color: #1fc0b8;
+    background-color: #EDEDED;
 }
 
 .active {
-    background-color: #1fc0b8;
+    background-color: #EDEDED;
 }
 
-.monitor {
+.record {
     height: 100vh;
     width: auto;
-    background-color: #ecd96a;
-    overflow: hidden;
+    background-color: #F54C4C;
+    overflow-x: hidden;
 }
