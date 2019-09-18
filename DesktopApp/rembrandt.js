@@ -15,7 +15,7 @@ const rembrandt = new Rembrandt({
   maxThreshold: 0.01,
 
   // Maximum color delta (0...255):
-  maxDelta: 20,
+  maxDelta: 1,
 
   // Maximum surrounding pixel offset
   maxOffset: 0,
@@ -28,8 +28,11 @@ const rembrandt = new Rembrandt({
 rembrandt
   .compare()
   .then(function(result) {
+    console.log(rembrandt.imageA);
+    console.log(rembrandt.imageB);    
     console.log("Passed:", result.passed);
     console.log("Difference:", (result.threshold * 100).toFixed(2), "%");
+    console.log("Difference in pixels: ", (result.threshold));
     console.log("Composition image buffer:", result.compositionImage);
 
     // Note that `compositionImage` is an Image when Rembrandt.js is run in the browser environment
