@@ -5,7 +5,7 @@ const fs = require('fs');
 const rembrandt = new Rembrandt({
   // `imageA` and `imageB` can be either Strings (file path on node.js,
   // public url on Browsers) or Buffers
-  imageA: fs.readFileSync("img/img1.png"),
+  imageA: fs.readFileSync("img/img1.png"), //Path to file 1 and then 2
   imageB: fs.readFileSync("img/img2.png"),
 
   // Needs to be one of Rembrandt.THRESHOLD_PERCENT or Rembrandt.THRESHOLD_PIXELS
