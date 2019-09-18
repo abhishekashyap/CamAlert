@@ -60,9 +60,9 @@ function backAnimate(){
 }
 /*|||||||||||||||||||||||||||||||||||--Navbar Menu Options--|||||||||||||||||||||||||||||||||||||*/
 
-function navOptionSelect(x) {            //Menu Animations
+function navOptionSelect(x) {               //Menu Animations
     
-    if(x==1){                           //to open Home menu
+    if(x==1){                               //to open Home menu
         $("#BackButton").hide();
         $("#Mon").animate({
             height:"0vh"
@@ -78,32 +78,32 @@ function navOptionSelect(x) {            //Menu Animations
     }
 
     if(x == 2){
-    $("#BackButton").show(200);          //to open Record menu
-    $("#Rec").animate({
-        height:'100vh'
-    });
-    $("#Mon").animate({
-        height:"0vh"
-    });
-    }
-    
-    if(x == 3){                          //to open Monitor menu
-    $("#BackButton").show(200);
-    $("#Mon").animate({
-        height:'100vh'
-    });
-    $("#Rec").animate({
-        height:"0vh"
-    });
-    }   
-    
-    if($("#Rec").css("height")!='0px')
-    {
+        $("#BackButton").show(200);          //to open Record menu
         $("#Rec").animate({
+            height:'100vh'
+        });
+        $("#Mon").animate({
             height:"0vh"
         });
     }
+    
+    if(x == 3){                             //to open Monitor menu
+        $("#BackButton").show(200);
+        $("#Mon").animate({
+            height:'100vh'
+        });
+        $("#Rec").animate({
+            height:"0vh"
+        });
+    }   
+
     closeMenu();
 };
+
+/*||||||||||||||||||||||||||||||||--Functions refreshed on page load for smooth transitions--||||||||||||||||||||||||||||||||||*/
+$( document ).ready(function() {        
+    backAnimate();
+});
   
+
 app.initialize();
