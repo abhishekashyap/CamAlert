@@ -125,9 +125,11 @@ body {
     color: white;
     font-size: 6vh;
     font-family: 'Signika', sans-serif;
+    font-weight: normal;
+    text-align: center;
 }
 
-#cont1 {
+#cont1{
     background-image: url(../img/video-1613996_1280.png);
     background-position: center;
     background-size: cover;
@@ -137,7 +139,7 @@ body {
     justify-content: flex-end;
 }
 
-#cont2 {
+#cont2{
     background-image: url(../img/5431965.jpg);
     background-position: center;
     background-size: cover;
@@ -147,32 +149,20 @@ body {
     justify-content: flex-start;
 }
 
-
-
-h1 {
-    font-weight: normal;
-    text-align: center;
-}
-
-.blink {
-    animation: fade 3000ms infinite;
-    -webkit-animation: fade 3000ms infinite;
-}
-
-#Rec{
+/* Different Menus */
+#Record{                                   /*Record Menu*/
     position: absolute;
     width:100vw;
     top:0;
     background-color:bisque;
 }
-#Mon
-{
+#Monitor{                                   /*Monitor Menu*/
     position:absolute;
     width:100vw;
     bottom:0;
     background-color:rebeccapurple;
 }
-#ContactUs{
+#ContactUs{                             /*Contact Menu*/
     position: absolute;
     bottom:0.5vh;
 }

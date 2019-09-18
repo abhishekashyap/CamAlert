@@ -48,11 +48,11 @@ function closeMenu(){
 
 function backAnimate(){
     $("#BackButton").click(function(){
-        $("#Mon").animate({
+        $("#Monitor").animate({
             height:"0vh"
         });
     
-        $("#Rec").animate({
+        $("#Record").animate({
             height:"0vh"
         });
         $("#BackButton").hide(200);
@@ -64,35 +64,32 @@ function navOptionSelect(x) {               //Menu Animations
     
     if(x==1){                               //to open Home menu
         $("#BackButton").hide();
-        $("#Mon").animate({
+        $("#Monitor").animate({
             height:"0vh"
         });
-        $("#Rec").animate({
+        $("#Record").animate({
             height:"0vh"
         });
         
-        $("#sideMenu a").hide(1000);
-        $("#sideMenu").animate({
-            width:'0px'
-        }, function(){$("#nav-container").hide(1000)});
+        closeMenu();
     }
 
     if(x == 2){
         $("#BackButton").show(200);          //to open Record menu
-        $("#Rec").animate({
+        $("#Record").animate({
             height:'100vh'
         });
-        $("#Mon").animate({
+        $("#Monitor").animate({
             height:"0vh"
         });
     }
     
     if(x == 3){                             //to open Monitor menu
         $("#BackButton").show(200);
-        $("#Mon").animate({
+        $("#Monitor").animate({
             height:'100vh'
         });
-        $("#Rec").animate({
+        $("#Record").animate({
             height:"0vh"
         });
     }   
