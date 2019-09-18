@@ -1,11 +1,16 @@
-const Rembrandt = require('rembrandt');
-const fs = require('fs');
+const Rembrandt = require("rembrandt");
+const fs = require("fs");
 
+// Assuming that 'path/file.txt' is a regular file.
+fs.unlink("img/demon.jpg", err => {
+  if (err) throw err;
+  console.log("path/demon.txt was deleted");
+});
 
 const rembrandt = new Rembrandt({
   // `imageA` and `imageB` can be either Strings (file path on node.js,
   // public url on Browsers) or Buffers
-  imageA: fs.readFileSync("img/img1.png"), //Path to file 1 and then 2
+  imageA: fs.readFileSync("img/img1.png"),
   imageB: fs.readFileSync("img/img2.png"),
 
   // Needs to be one of Rembrandt.THRESHOLD_PERCENT or Rembrandt.THRESHOLD_PIXELS
