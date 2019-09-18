@@ -27,18 +27,78 @@ var app = {
     
 };
 
-$(document).ready(function () {
 
-    /*|||||||||||||||||||||||||||||||||||--To-Open-Navbar--|||||||||||||||||||||||||||||||||||||*/
-    $("#NavButton").click(function () {
-        $("#sideMenu a").show(400);     //fade in effect on open
-        $("#sideMenu").animate({
-            width:'240px'
-        });
-        $("#nav-container").css("display","flex");
-        
-       
+/*||||||||||||||||||||||||||||||||--Navbar Menu Animations--||||||||||||||||||||||||||||||||||*/
+
+function navAnimate() {             //Fade in effect on open
+    $("#sideMenu a").show(400);     
+    $("#sideMenu").animate({
+        width:'240px'
     });
+    $("#nav-container").css("display","flex");
+};
+
+function closeMenu(){
+    $("#sideMenu a").hide(1000);
+    $("#sideMenu").animate({
+        width:'0px'
+    },
+    function(){$("#nav-container").hide(1000)});
+}
+/*|||||||||||||||||||||||||||||||||||--Navbar Menu Options--|||||||||||||||||||||||||||||||||||||*/
+
+function navOptionSelect(x) {            //Menu Animations
+    
+    
+    
+    if(x==1){                           //to open Home menu
+        $("#BackButton").hide();
+        if($("#Mon").css("height")!='0px')
+        {
+            $("#Mon").animate({
+                height:"0vh"
+            });
+        }
+        else{
+            $("#Rec").animate({
+                height:"0vh"
+            });
+        }
+        $("#sideMenu a").hide(1000);
+        $("#sideMenu").animate({
+            width:'0px'
+        }, function(){$("#nav-container").hide(1000)});
+    }
+
+    if(x == 2){
+    $("#BackButton").show(200);                         //to open Record menu
+    $("#Rec").animate({
+        height:'100vh'
+    });
+    }
+    
+    if(x == 3)                          //to open Monitor menu
+    $("#BackButton").show(200);
+    $("#Mon").animate({
+        height:'100vh'
+    });
+
+    
+    if($("#Rec").css("height")!='0px')
+    {
+        $("#Rec").animate({
+            height:"0vh"
+        });
+    }
+    
+    $("#sideMenu a").hide(1000);
+    $("#sideMenu").animate({
+        width:'0px'
+    }, function(){$("#nav-container").hide(1000)});
+};
+
+
+$(document).ready(function () {
 
     $("#BackButton").click(function(){
         if($("#Mon").css("height")!='0px')
@@ -54,78 +114,17 @@ $(document).ready(function () {
         }
         $("#BackButton").hide(200);
     })
-    /*|||||||||||||||||||||||||||||||||||--close-Navbar-Through-closeButton-|||||||||||||||||||||||||||||||||||||*/
-    $(".closebtn").click(function()
-    {   $("#sideMenu a").hide(1000); // since the animation effect on close is not smooth so i made the text disappear to make it smooth any better fix is appreciated
-        $("#sideMenu").animate({
-            width:'0px'
-        }, function(){$("#nav-container").hide(1000)}); //To make transition look smooth
-    });
-
-    /*|||||||||||||||||||||||||||||||||||--To-Close-Navbar-ByClicking-Outside-|||||||||||||||||||||||||||||||||||||*/
-    $("#navback").click(function () {
-        $("#sideMenu a").hide(1000);
-        $("#sideMenu").animate({
-            width:'0px'
-        }, function(){$("#nav-container").hide(1000)});
-        
-    });
+    
     
     /*|||||||||||||||||||||||||||||||||||--To-Goto-HomePage--|||||||||||||||||||||||||||||||||||||*/
     $("#home").click(function(){
-        if($("#Mon").css("height")!='0px')
-        {
-            $("#Mon").animate({
-                height:"0vh"
-            });
-        }
-        else{
-            $("#Rec").animate({
-                height:"0vh"
-            });
-        }
-        $("#sideMenu a").hide(1000);
-        $("#sideMenu").animate({
-            width:'0px'
-        }, function(){$("#nav-container").hide(1000)});
+        
     });
 
     /*|||||||||||||||||||||||||||||||||||--To-Goto-RecordPane--|||||||||||||||||||||||||||||||||||||*/
-    $("#Record").click(function()
-    {
-        $("#Rec").animate({
-            height:'100vh'
-        });
-        $("#BackButton").show(200);
-        if($("#Mon").css("height")!='0px')
-        {
-            $("#Mon").animate({
-                height:"0vh"
-            });
-        }
-        $("#sideMenu a").hide(1000);
-        $("#sideMenu").animate({
-            width:'0px'
-        }, function(){$("#nav-container").hide(1000)});
-    });
+    
     /*|||||||||||||||||||||||||||||||||||--To-Goto-MonitorPane--|||||||||||||||||||||||||||||||||||||*/
-    $("#Monitor").click(function()
-    {
-        $("#Mon").animate({
-            height:'100vh'
-        });
-        $("#BackButton").show(200);
-        if($("#Rec").css("height")!='0px')
-        {
-            $("#Rec").animate({
-                height:"0vh"
-            });
-        }
-        $("#sideMenu a").hide(1000);
-        $("#sideMenu").animate({
-            width:'0px'
-        }, function(){$("#nav-container").hide(1000)});
-    });
+
 
     /*|||||||||||||||||||||||||||||||||||--To-Open-RecordPane--|||||||||||||||||||||||||||||||||||||*/
     $("#cont1").click(function(){
