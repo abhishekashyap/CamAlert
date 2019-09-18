@@ -57,7 +57,7 @@ $(document).ready(function () {
     {   $("#sideMenu a").hide(1000); // since the animation effect on close is not smooth so i made the text disappear to make it smooth any better fix is appreciated
         $("#sideMenu").animate({
             width:'0px'
-        }, function(){$("#nav-container").hide()});
+        }, function(){$("#nav-container").hide(1000)}); //To make transition look smooth
     });
 
     /*|||||||||||||||||||||||||||||||||||--To-Close-Navbar-ByClicking-Outside-|||||||||||||||||||||||||||||||||||||*/
@@ -65,7 +65,7 @@ $(document).ready(function () {
         $("#sideMenu a").hide(1000);
         $("#sideMenu").animate({
             width:'0px'
-        }, function(){$("#nav-container").hide()});
+        }, function(){$("#nav-container").hide(1000)});
         
     });
     
@@ -85,7 +85,7 @@ $(document).ready(function () {
         $("#sideMenu a").hide(1000);
         $("#sideMenu").animate({
             width:'0px'
-        }, function(){$("#nav-container").hide()});
+        }, function(){$("#nav-container").hide(1000)});
     });
 
     /*|||||||||||||||||||||||||||||||||||--To-Goto-RecordPane--|||||||||||||||||||||||||||||||||||||*/
@@ -104,7 +104,7 @@ $(document).ready(function () {
         $("#sideMenu a").hide(1000);
         $("#sideMenu").animate({
             width:'0px'
-        }, function(){$("#nav-container").hide()});
+        }, function(){$("#nav-container").hide(1000)});
     });
     /*|||||||||||||||||||||||||||||||||||--To-Goto-MonitorPane--|||||||||||||||||||||||||||||||||||||*/
     $("#Monitor").click(function()
@@ -122,7 +122,7 @@ $(document).ready(function () {
         $("#sideMenu a").hide(1000);
         $("#sideMenu").animate({
             width:'0px'
-        }, function(){$("#nav-container").hide()});
+        }, function(){$("#nav-container").hide(1000)});
     });
 
     /*|||||||||||||||||||||||||||||||||||--To-Open-RecordPane--|||||||||||||||||||||||||||||||||||||*/
