@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Hello</h1>
+    <img id="image" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+    <script>
+      const socket = io.connect("http://localhost:3000");
+      // const socket = io.connect('192.168.43.236:3000');
+      socket.on('image', data => {
+        console.log('data', data);
+        // console.log(image);
+        const imgElm = document.getElementById("image");
+        imgElm.src = 'data:image/jpeg;charset=utf-8;base64,' + data;
+      });
+    </script>
+  </body>
+</html>
