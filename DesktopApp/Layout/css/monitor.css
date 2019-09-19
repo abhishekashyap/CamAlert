@@ -1,50 +1,63 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+@font-face {
+  font-family: "LitSans Medium";
+  font-style: normal;
+  font-weight: normal;
+  src: local("LitSans Medium"), url("LitSans-Medium.woff") format("woff");
+}
+
 body {
-    margin: 0;
+  margin: 0;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: normal;
+  background-color: #e74c3c;
+  background-image: url("../../img/recordbg.jpg");
 }
 
 ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #FCB604;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: transparent;
 }
 
 .left-nav {
-    float: left;
+  float: left;
 }
 
 .right-nav {
-    float: right;
+  float: right;
 }
 
 li a {
-    display: block;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    padding: 1em;
-    text-decoration: none;
+  display: block;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  padding: 1em;
+  text-decoration: none;
 }
 
 li a:hover:not(.active) {
-    background-color: #47c0ac;
+  background-color: #47c0ac;
 }
 
 .active {
-    background-color: #47c0ac;
+  background-color: #47c0ac;
 }
 
 .monitor {
-    height: 100vh;
-    width: auto;
-    background-color: #F4E5C0;
-    overflow: hidden;
+  height: 100vh;
+  width: auto;
+  background-color: #f4e5c0;
+  overflow: hidden;
 }
 
 .display {
-    background-color: white;
-    border: 1vh solid black;
-    margin: 5vh 2vh 2vh 2vh;
-    height: 80vh;
-    width: auto;
+  background-color: white;
+  border: 1vh solid black;
+  margin: 5vh 2vh 2vh 2vh;
+  height: 80vh;
+  width: auto;
 }

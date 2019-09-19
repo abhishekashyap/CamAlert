@@ -1,64 +1,78 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+@font-face {
+  font-family: "LitSans Medium";
+  font-style: normal;
+  font-weight: normal;
+  src: local("LitSans Medium"), url("LitSans-Medium.woff") format("woff");
+}
+
 body {
-    margin: 0;
+  margin: 0;
+  background-color: rgba(25, 91, 122, 0.904);
+  background-image: url('../../img/recordbg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: "LitSans Medium";
+  font-style: normal;
+  font-weight: normal;
 }
 
 ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: rgb(85, 94, 91);
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #7f8c8d;
 }
 
 .left-nav {
-    float: left;
+  float: left;
 }
 
 .right-nav {
-    float: right;
+  float: right;
 }
 
 li a {
-    display: block;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    padding: 1em;
-    text-decoration: none;
+  display: block;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  padding: 1em;
+  text-decoration: none;
 }
 
 li a:hover:not(.active) {
-    background-color: #EDEDED;
+  background-color: #ededed;
 }
 
 .active {
-    background-color: #EDEDED;
+  background-color: #ededed;
 }
 
-.record {
-    height: 100vh;
-    width: auto;
-    background-color: #F54C4C;
-    overflow-x: hidden;
+
+.btn {
+    margin: 1vw;
+    color: white;
+    padding: 0.6vw;
+    border-width: 0.2vw;
+    border-color: white;
+    background: transparent;
+    transition: 0.5s ease-in-out;
 }
 
-.display {
-    background-color: white;
-    border: 1vh solid black;
-    margin: 5vh 2vh 2vh 2vh;
-    height: 70vh;
-    width: auto;
+.btn:hover {
+    margin: 1vw;
+    color: #16a085;
+    padding: 0.6vw;
+    border-width: 0.2vw;
+    border-color: white;
+    background: white;
 }
 
-.circle {
-    background-image: linear-gradient();
-    border: 1vh solid white;
-    color: rgb(133, 0, 0);
-    padding: 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 4vw;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 100%;
+.vid-container {
+    display: inline;
+    align-items: center;
 }
+
+
