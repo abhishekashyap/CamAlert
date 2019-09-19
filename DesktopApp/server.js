@@ -56,28 +56,32 @@ setInterval(() => {
   var filepath = "img/";
 
   // Save with a buffer as content from a base64 image
-  fs.writeFile(filepath + 'img' + num++ + ".jpg", new Buffer(image, "base64"), err => {
-    if (err) throw err;
+  fs.writeFile(
+    filepath + "img" + num++ + ".jpg",
+    new Buffer(image, "base64"),
+    err => {
+      if (err) throw err;
 
-    console.log("The file 1 was succesfully saved!");
-  });
-  io.emit("image", image);
+      console.log("The file 1 was succesfully saved!");
+    }
+  );
+  io.emit("image", image); // Emitting first image
 
-  setTimeout(() => {}, 1000);
+  setTimeout(() => {}, 1000); // 1s delay to capture two different frames
 
   const frame1 = wCap.read();
   const image1 = cv.imencode(".jpg", frame1).toString("base64");
 
-  fs.writeFile(filepath + 'img' + num++ + ".jpg", new Buffer(image1, "base64"), err => {
-    if (err) throw err;
+  fs.writeFile(
+    filepath + "img" + num++ + ".jpg",
+    new Buffer(image1, "base64"),
+    err => {
+      if (err) throw err;
+      console.log("The file 2 was succesfully saved!");
+    }
+  );
 
-    console.log("The file 2 was succesfully saved!");
-  });
-
-  console.log('img/img0.jpg');
-  console.log('img/img1.jpg');
-
-  io.emit("image", image1);
+  io.emit("image", image1); // Emitting second image
 
   // Image comparison
   const Rembrandt = require("rembrandt");
@@ -85,10 +89,8 @@ setInterval(() => {
   const rembrandt = new Rembrandt({
     // `imageA` and `imageB` can be either Strings (file path on node.js,
     // public url on Browsers) or Buffers
-    // imageA: fs.readFileSync("img/img0.jpg"),
-    imageA: 'img/img0.jpg',
-    // imageB: fs.readFileSync("img/img1.jpg"),
-    imageB: 'img/img1.jpg',
+    imageA: "img/img0.jpg",
+    imageB: "img/img1.jpg",
 
     // Needs to be one of Rembrandt.THRESHOLD_PERCENT or Rembrandt.THRESHOLD_PIXELS
     thresholdType: Rembrandt.THRESHOLD_PERCENT,
@@ -109,12 +111,10 @@ setInterval(() => {
   // Run the comparison
   rembrandt
     .compare()
-    .then(function (result) {
-      // console.log(rembrandt.imageA);
-      // console.log(rembrandt.imageB);
+    .then(function(result) {
       console.log("Passed:", result.passed);
       console.log("Difference:", (result.threshold * 100).toFixed(2), "%");
-      console.log("Difference in pixels: ", (result.threshold));
+      console.log("Difference in pixels: ", result.threshold);
       console.log("Composition image buffer:", result.compositionImage);
 
       // Note that `compositionImage` is an Image when Rembrandt.js is run in the browser environment
@@ -123,24 +123,11 @@ setInterval(() => {
       console.error(e);
     });
 
-
-  // Deleting files
-  // fs.unlink("img/img0.jpg", err => {
-  //   if (err) throw err;
-  //   console.log("path/img1.jpg was deleted");
-  // });
-
-  // fs.unlink("img/img1.jpg", err => {
-  //   if (err) throw err;
-  //   console.log("path/img2.jpg was deleted");
-  // });
-
-  num = 0;
-
+  num = 0; // Reset counter
 }, 1000);
 
 //console.log(typeof(ip));
-server.listen(PORT, function () {
+server.listen(PORT, function() {
   console.log("Express server listening on port ", PORT);
 });
 
