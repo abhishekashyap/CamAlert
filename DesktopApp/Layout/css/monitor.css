@@ -40,3 +40,11 @@ li a:hover:not(.active) {
     background-color: #F4E5C0;
     overflow: hidden;
 }
+
+.display {
+    background-color: white;
+    border: 1vh solid black;
+    margin: 5vh 2vh 2vh 2vh;
+    height: 80vh;
+    width: auto;
+}

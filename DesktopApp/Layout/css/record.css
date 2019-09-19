@@ -40,3 +40,25 @@ li a:hover:not(.active) {
     background-color: #F54C4C;
     overflow-x: hidden;
 }
+
+.display {
+    background-color: white;
+    border: 1vh solid black;
+    margin: 5vh 2vh 2vh 2vh;
+    height: 70vh;
+    width: auto;
+}
+
+.circle {
+    background-image: linear-gradient();
+    border: 1vh solid white;
+    color: rgb(133, 0, 0);
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 4vw;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 100%;
+}
