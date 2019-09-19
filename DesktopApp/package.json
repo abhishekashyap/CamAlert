@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "canvas": "^2.6.0",
     "electron": "^6.0.9",
     "express": "^4.17.1",
     "express-device": "^0.4.2",
