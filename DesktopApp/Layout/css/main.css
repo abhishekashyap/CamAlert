@@ -1,60 +1,80 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-body {
+@font-face {
+    font-family: "LitSans Medium";
+    font-style: normal;
+    font-weight: normal;
+    src: local("LitSans Medium"), url("LitSans-Medium.woff") format("woff");
+}
+
+* {
+    padding: 0;
     margin: 0;
 }
 
-
-/* Div CSS */
-
-.container {
-    display: flex;
-    height: 100vh;
-    width: 100vw;
+.center {
+    padding: 12% 12%;
+    display: grid;
+    width: 76%;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 2vw;
 }
 
 a {
     text-decoration: none;
 }
 
-#cont1 {
+.element {
+    height: 60vh;
+    align-self: center;
+    box-shadow: 0 1px 20px rgba(0, 0, 0, 0.432);
+    display: flex;
+    flex-direction: column-reverse;
+    background-size: cover;
+    background-position: center;
+}
+
+.element:hover .text {
+    display: table-cell;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.13);
+}
+
+#monitor {
     background-image: url("../../img/monitor.jpg");
 }
 
-#cont2 {
+#record {
     background-image: url("../../img/record.png");
 }
 
-#cont3 {
+#upload {
     background-image: url("../../img/upload.jpg");
 }
 
-.colorbox {
-    background-position: center;
-    background-size: 100% 100%;
+.container {
+    /* padding: 0 10%; */
     height: 100vh;
-    width: 33.33vw;
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
-    transition: all 0.3s;
+    width: auto;
+    background-size: cover;
 }
-
-.colorbox:hover {
-    -webkit-filter: grayscale(0%);
-    filter: grayscale(0%);
-}
-
-
-/* Text CSS */
 
 .text {
-    padding-top: 3vh;
-    font-family: 'Roboto', sans-serif;
     display: none;
-    font-size: 5vw;
-    color: white;
+    vertical-align: middle;
     text-align: center;
+    padding: 10% 0;
+    width: 100%;
+    height: 4%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
 }
 
-.colorbox:hover .text {
-    display: block;
+.heading {
+    font-family: "LitSans Medium";
+    font-style: normal;
+    font-weight: normal;
+    src: local("LitSans Medium"), url("LitSans-Medium.woff") format("woff");
+    color: white;
+    text-align: center;
+    animation: slide 3s;
 }
