@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+body {
+    margin: 0;
+}
+
+
+/* Div CSS */
+
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+a {
+    text-decoration: none;
+}
+
+#cont1 {
+    background-image: url("../../img/monitor.jpg");
+}
+
+#cont2 {
+    background-image: url("../../img/record.png");
+}
+
+#cont3 {
+    background-image: url("../../img/upload.jpg");
+}
+
+.colorbox {
+    background-position: center;
+    background-size: 100% 100%;
+    height: 100vh;
+    width: 33.33vw;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    transition: all 0.3s;
+}
+
+.colorbox:hover {
+    -webkit-filter: grayscale(0%);
+    filter: grayscale(0%);
+}
+
+
+/* Text CSS */
+
+.text {
+    padding-top: 3vh;
+    font-family: 'Roboto', sans-serif;
+    display: none;
+    font-size: 5vw;
+    color: white;
+    text-align: center;
+}
+
+.colorbox:hover .text {
+    display: block;
+}
