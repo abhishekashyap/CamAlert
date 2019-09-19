@@ -59,22 +59,25 @@ setInterval(() => {
   fs.writeFile(filepath + 'img' + num++ + ".jpg", new Buffer(image, "base64"), err => {
     if (err) throw err;
 
-    console.log("The file was succesfully saved!");
+    console.log("The file 1 was succesfully saved!");
   });
   io.emit("image", image);
 
-  fs.writeFile(filepath + 'img' + num++ + ".jpg", new Buffer(image, "base64"), err => {
+  setTimeout(() => {}, 1000);
+
+  const frame1 = wCap.read();
+  const image1 = cv.imencode(".jpg", frame1).toString("base64");
+
+  fs.writeFile(filepath + 'img' + num++ + ".jpg", new Buffer(image1, "base64"), err => {
     if (err) throw err;
 
-    console.log("The file was succesfully saved!");
+    console.log("The file 2 was succesfully saved!");
   });
 
   console.log('img/img0.jpg');
   console.log('img/img1.jpg');
 
-
-
-  io.emit("image", image);
+  io.emit("image", image1);
 
   // Image comparison
   const Rembrandt = require("rembrandt");
@@ -134,7 +137,7 @@ setInterval(() => {
 
   num = 0;
 
-}, 2000);
+}, 1000);
 
 //console.log(typeof(ip));
 server.listen(PORT, function () {
