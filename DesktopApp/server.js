@@ -42,18 +42,18 @@ if (device_type == 'mobile') {
 
 app.get("/monitor", (req, res) => {
   console.log("accessed monitor");
-  res.sendFile(path.join(__dirname, "Layout/monitor.html"));
-  res.sendFile(path.join(__dirname, "Layout/monitor-electron.html"));
+  res.sendFile(path.join(__dirname, "Layout/html/monitor.html"));
+  res.sendFile(path.join(__dirname, "Layout/html/monitor-electron.html"));
   //device_type = req.device.type;
 });
 app.get("/record", (req, res) => {
   console.log("accessed record");
-  res.sendFile(path.join(__dirname, "Layout/record.html"));
+  res.sendFile(path.join(__dirname, "Layout/html/record.html"));
   //device_type = req.device.type;
 });
 app.get("/", (req, res) => {
   console.log("accessed main");
-  res.sendFile(path.join(__dirname, "Layout/main.html"));
+  res.sendFile(path.join(__dirname, "Layout/html/main.html"));
   //device_type = req.device.type;
 });
 
