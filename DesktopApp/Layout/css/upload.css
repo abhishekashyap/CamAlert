@@ -17,4 +17,8 @@ body {
     background-repeat: no-repeat;
 }
 
+.active{
+    color: rgb(28, 166, 140)
+}
+
 /* Main page design */

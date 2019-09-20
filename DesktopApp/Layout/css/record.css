@@ -68,3 +68,7 @@ main {
 .btn-container {
     text-align: center;
 }
+
+.active{
+    color:rgb(243,70,76);
+}
