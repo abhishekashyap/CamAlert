@@ -93,10 +93,10 @@ setInterval(() => {
     imageB: "img/img1.jpg",
 
     // Needs to be one of Rembrandt.THRESHOLD_PERCENT or Rembrandt.THRESHOLD_PIXELS
-    thresholdType: Rembrandt.THRESHOLD_PERCENT,
+    thresholdType: Rembrandt.THRESHOLD_PIXELS,
 
     // The maximum threshold (0...1 for THRESHOLD_PERCENT, pixel count for THRESHOLD_PIXELS
-    maxThreshold: 0.01,
+    maxThreshold: 0.001,
 
     // Maximum color delta (0...255):
     maxDelta: 1,
@@ -127,7 +127,7 @@ setInterval(() => {
 }, 1000);
 
 //console.log(typeof(ip));
-server.listen(PORT, function() {
+server.listen(PORT, '192.168.43.30', function() {
   console.log("Express server listening on port ", PORT);
 });
 
