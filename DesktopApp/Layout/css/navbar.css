@@ -18,6 +18,7 @@ nav {
 .nav-items {
     font-family: "LitSans Medium";
     font-style: normal;
+    font-size: 1.7vw;
     font-weight: normal;
     padding: 2vh;
 }
