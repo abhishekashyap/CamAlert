@@ -1,55 +1,45 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 @font-face {
-  font-family: "LitSans Medium";
-  font-style: normal;
-  font-weight: normal;
-  src: local("LitSans Medium"), url("LitSans-Medium.woff") format("woff");
+    font-family: "LitSans Medium";
+    font-style: normal;
+    font-weight: normal;
+    src: local("LitSans Medium"), url("LitSans-Medium.woff") format("woff");
 }
 
 body {
-  margin: 0;
-  background-color: rgba(25, 91, 122, 0.904);
-  background-image: url('../../img/recordbg.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  font-family: "LitSans Medium";
-  font-style: normal;
-  font-weight: normal;
+    margin: 0;
+    height: 100vh;
+    background-color: rgba(25, 91, 122, 0.904);
+    background-image: url('../../img/recordbg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: "LitSans Medium";
+    font-style: normal;
+    font-weight: normal;
 }
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #7f8c8d;
+a {
+    text-decoration: none;
+    color: white;
 }
 
-.left-nav {
-  float: left;
+nav {
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    justify-items: center;
+    align-items: center;
+    width: auto;
+    background-color: transparent;
 }
 
-.right-nav {
-  float: right;
+.nav-items {
+    padding: 2vh;
 }
 
-li a {
-  display: block;
-  color: rgb(0, 0, 0);
-  text-align: center;
-  padding: 1em;
-  text-decoration: none;
+nav a:hover {
+    color: gray;
 }
-
-li a:hover:not(.active) {
-  background-color: #ededed;
-}
-
-.active {
-  background-color: #ededed;
-}
-
 
 .btn {
     margin: 1vw;
@@ -70,9 +60,31 @@ li a:hover:not(.active) {
     background: white;
 }
 
-.vid-container {
-    display: inline;
+main {
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
+.vid-container {
+    /* padding: 0 26vw; */
+    /* display: grid; */
+    /* width: 800; */
+    /* grid-template-columns: 1fr 1fr;
+    grid-column-gap: 2vw; */
+}
 
+.player {
+    border: 1px solid white;
+    /* display: flex;
+    flex-direction: column-reverse;
+    align-self: center; */
+    padding: 1vw;
+    margin: 1vw;
+}
+
+.btn-container {
+    text-align: center;
+}

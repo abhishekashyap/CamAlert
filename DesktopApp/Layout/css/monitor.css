@@ -1,63 +1,47 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 @font-face {
-  font-family: "LitSans Medium";
-  font-style: normal;
-  font-weight: normal;
-  src: local("LitSans Medium"), url("LitSans-Medium.woff") format("woff");
+    font-family: "LitSans Medium";
+    font-style: normal;
+    font-weight: normal;
+    src: local("LitSans Medium"), url("LitSans-Medium.woff") format("woff");
 }
 
 body {
-  margin: 0;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: normal;
-  background-color: #e74c3c;
-  background-image: url("../../img/recordbg.jpg");
+    margin: 0;
+    height: 100vh;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: normal;
+    background-image: url('../../img/monitor_Main.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: transparent;
+
+/* Nav Bar Design */
+
+a {
+    text-decoration: none;
+    color: black;
 }
 
-.left-nav {
-  float: left;
+nav {
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    justify-items: center;
+    align-items: center;
+    width: auto;
+    background-color: transparent;
 }
 
-.right-nav {
-  float: right;
+.nav-items {
+    padding: 2vh;
 }
 
-li a {
-  display: block;
-  color: rgb(0, 0, 0);
-  text-align: center;
-  padding: 1em;
-  text-decoration: none;
+nav a:hover {
+    color: gray;
 }
 
-li a:hover:not(.active) {
-  background-color: #47c0ac;
-}
 
-.active {
-  background-color: #47c0ac;
-}
-
-.monitor {
-  height: 100vh;
-  width: auto;
-  background-color: #f4e5c0;
-  overflow: hidden;
-}
-
-.display {
-  background-color: white;
-  border: 1vh solid black;
-  margin: 5vh 2vh 2vh 2vh;
-  height: 80vh;
-  width: auto;
-}
+/* Main Page design */

@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+    height: 100vh;
+    background-image: url(../../img/monitorbg.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+/* Nav Bar design */
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+nav {
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    justify-items: center;
+    align-items: center;
+    width: auto;
+    background-color: transparent;
+}
+
+.nav-items {
+    padding: 2vh;
+}
+
+nav a:hover {
+    color: gray;
+}
+
+
+/* Main page design */
+
+
+/* .process {
+    height: 100vh;
+    width: auto;
+    /* background-color: #B3FFE8; */
+
+overflow-x: hidden;
+
+}
+*/
