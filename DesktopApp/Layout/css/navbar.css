@@ -1,0 +1,24 @@
+
+/* Nav Bar Design */
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+nav {
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    justify-items: center;
+    align-items: center;
+    width: auto;
+    background-color: transparent;
+}
+
+.nav-items {
+    padding: 2vh;
+}
+
+nav a:hover {
+    color: gray;
+}
