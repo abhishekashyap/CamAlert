@@ -3,7 +3,7 @@
 
 a {
     text-decoration: none;
-    color: black;
+    color: white;
 }
 
 nav {
@@ -12,13 +12,20 @@ nav {
     justify-items: center;
     align-items: center;
     width: auto;
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 .nav-items {
+    font-family: "LitSans Medium";
+    font-style: normal;
+    font-weight: normal;
     padding: 2vh;
+}
+.active{
+    color:goldenrod;
 }
 
 nav a:hover {
+    transition: 0.3s ease-in-out;
     color: gray;
 }

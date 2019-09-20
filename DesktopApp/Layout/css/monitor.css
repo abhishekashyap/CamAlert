@@ -18,4 +18,14 @@ body {
     background-repeat: no-repeat;
 }
 
-/* Main Page design */
+/* Nav overwrite for this page */
+nav {
+    background-color: transparent;
+}
+
+.nav-items {
+    color: black;
+}
+.active{
+    color:white;
+}
