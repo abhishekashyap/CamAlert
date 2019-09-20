@@ -58,7 +58,7 @@ body {
     display: block;
     width: 0;
     height: 100vh;
-    background-color: #5677fc;
+    background-color: #000080;
     overflow: hidden;
     box-shadow: 40vw 0vw 30vh rgba(0, 0, 0, 0.616);
     font-size: 6vw;
