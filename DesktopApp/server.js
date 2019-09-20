@@ -6,8 +6,16 @@ const app = express();
 const device = require("express-device");
 const server = require("http").Server(app);
 const io = require("socket.io")(server);
+const notifier = require('node-notifier');
 
 const PORT = 3000;
+
+
+notifier.notify({
+  title: 'Alert !!!',
+  message: 'Intruder Detected' + Date.now(),
+  sound: 'Sosumi'
+});
 
 // Capturing from default camera i.e. webcam
 const wCap = new cv.VideoCapture(0);
