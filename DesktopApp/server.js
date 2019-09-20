@@ -7,15 +7,10 @@ const device = require("express-device");
 const server = require("http").Server(app);
 const io = require("socket.io")(server);
 const notifier = require('node-notifier');
+const d = new Date()          // Create Date object
 
 const PORT = 3000;
 
-
-notifier.notify({
-  title: 'Alert !!!',
-  message: 'Intruder Detected' + Date.now(),
-  sound: 'Sosumi'
-});
 
 // Capturing from default camera i.e. webcam
 const wCap = new cv.VideoCapture(0);
@@ -56,6 +51,15 @@ app.get("/", (req, res) => {
 
 var num = 0; // Used to initialize image number
 
+function notify() {
+  notifier.notify({
+    title: 'Alert !!!',
+    message: 'Intruder Detected\n' + d.getDate() + '-' + d.getMonth() + '-' + d.getFullYear() + '\n' + d.getHours() + ':' + d.getMinutes(),
+    sound: 'Sosumi',
+    timeout: 5,
+  });
+}
+
 setInterval(() => {
   const frame = wCap.read();
   const image = cv.imencode(".jpg", frame).toString("base64");
@@ -75,7 +79,7 @@ setInterval(() => {
   );
   io.emit("image", image); // Emitting first image
 
-  setTimeout(() => {}, 1000); // 1s delay to capture two different frames
+  setTimeout(() => { }, 1000); // 1s delay to capture two different frames
 
   const frame1 = wCap.read();
   const image1 = cv.imencode(".jpg", frame1).toString("base64");
@@ -119,11 +123,17 @@ setInterval(() => {
   // Run the comparison
   rembrandt
     .compare()
-    .then(function(result) {
+    .then(function (result) {
       console.log("Passed:", result.passed);
       console.log("Difference:", (result.threshold * 100).toFixed(2), "%");
       console.log("Difference in pixels: ", result.threshold);
       console.log("Composition image buffer:", result.compositionImage);
+
+      console.log(typeof (result.passed));
+      var res = result.passed
+      if (res === true) {
+        notify();
+      }
 
       // Note that `compositionImage` is an Image when Rembrandt.js is run in the browser environment
     })
@@ -135,7 +145,8 @@ setInterval(() => {
 }, 1000);
 
 //console.log(typeof(ip));
-server.listen(PORT, '192.168.43.30', function() {
+// server.listen(PORT, '192.168.43.30', function () {
+server.listen(PORT, 'localhost', function () {
   console.log("Express server listening on port ", PORT);
 });
 
