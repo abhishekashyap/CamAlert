@@ -13,7 +13,7 @@ const PORT = 3000;
 
 notifier.notify({
   title: 'Alert !!!',
-  message: 'Intruder Detected',
+  message: 'Intruder Detected' + Date.now(),
   sound: 'Sosumi'
 });
 
