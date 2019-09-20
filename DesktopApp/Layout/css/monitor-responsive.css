@@ -19,8 +19,8 @@ video {
   }
 }
 .service-graphic .monitor {
-  width: 28.75em;
-  height: 17.5em;
+  width: 50em;
+  height: 30em;
   position: relative;
   background: #f8f8f8;
   border: 0.625em solid #1f1f1f;
@@ -61,10 +61,12 @@ video {
   background: #e8ebf0;
   bottom: -0.625em;
 }
+
 .monitor .content {
-  width: 26.25em;
-  height: 15em;
-  left: 50%;
+  width: 47.67em;
+  height: 27.6em;
+  left: 27.5%;
+
   margin-left: -13.125em;
   overflow: hidden;
 }
