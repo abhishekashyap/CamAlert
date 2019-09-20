@@ -1,0 +1,394 @@
+* {
+  box-sizing: border-box;
+}
+video {
+  width: 100%;
+  height: 100%;
+}
+.container {
+  margin: 2em auto;
+}
+.service-graphic {
+  font-size: 8px;
+  padding: 1em;
+  position: relative;
+}
+@media screen and (min-width: 38em) {
+  .service-graphic {
+    font-size: 12px;
+  }
+}
+.service-graphic .monitor {
+  width: 28.75em;
+  height: 17.5em;
+  position: relative;
+  background: #f8f8f8;
+  border: 0.625em solid #1f1f1f;
+  border-radius: 0.625em;
+  border: 1.25em solid #1f1f1f;
+  margin: 0 auto;
+}
+@media screen and (min-width: 38em) {
+  .service-graphic .monitor {
+    border: 1.25em solid #1f1f1f;
+  }
+}
+.monitor > div {
+  position: absolute;
+}
+.monitor:before,
+.monitor:after,
+.laptop:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+}
+.monitor:before,
+.laptop:before {
+  top: -0.25em;
+  margin: -0.188em 0 0 -0.188em;
+  width: 0.25em;
+  height: 0.25em;
+  border-radius: 0.25em;
+  background: #d8dbe1;
+  top: -0.625em;
+}
+.screen:after {
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 0.5em;
+  margin: 0 0 -0.25em -0.25em;
+  background: #e8ebf0;
+  bottom: -0.625em;
+}
+.monitor .content {
+  width: 26.25em;
+  height: 15em;
+  left: 50%;
+  margin-left: -13.125em;
+  overflow: hidden;
+}
+.monitor .content:before,
+.laptop .screen:before,
+.phone .screen:before,
+.ipad .screen:before {
+  content: "";
+  position: absolute;
+  right: -5.625em;
+  width: 12.5em;
+  height: 18.75em;
+  transform: rotate(45deg);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+  z-index: 5;
+}
+
+.btns {
+  position: absolute;
+  top: -1.25em;
+  left: 0.438em;
+}
+.btns:before {
+  content: "";
+  position: absolute;
+  left: 2.188em;
+  top: 0.313em;
+  height: 0.625em;
+  width: 11.563em;
+  background: #fff;
+  border-radius: 3px;
+}
+.btns > li {
+  display: inline-block;
+  vertical-align: middle;
+  list-style: none;
+  width: 0.313em;
+  height: 0.313em;
+  border-radius: 0.313em;
+  background: #f8f8f8;
+  margin-right: 0.25em;
+}
+.screen .txt {
+  margin: 0.625rem auto;
+  width: 85%;
+  text-align: center;
+  font-size: 0;
+}
+.screen .txt > li {
+  background: #e8ebf0;
+  width: 100%;
+  height: 0.938em;
+  margin-bottom: 0.363em;
+  font-size: 1rem;
+}
+.screen .txt > li.big {
+  height: 3.75em;
+}
+
+.screen .txt > .third {
+  height: 2.25em;
+  width: 30%;
+  margin-right: 5%;
+  display: inline-block;
+}
+.screen .txt > li:nth-child(5),
+.screen .txt > li:nth-child(10),
+.screen .txt > li:nth-child(13),
+.screen .txt > li:nth-child(18),
+.screen .txt > li:nth-child(21) {
+  margin-right: 0;
+}
+.base {
+  width: 5.625em;
+  height: 3.1em;
+  bottom: -3.9em;
+  left: 50%;
+  margin-left: -2.8125em;
+  background: #e8ebf0;
+  bottom: -4.3em;
+  z-index: -1;
+}
+.base:before,
+.base:after,
+.grey-shadow:before,
+.grey-shadow:after {
+  content: "";
+  position: absolute;
+  top: 0;
+}
+.base:before {
+  border-left: 0.813em solid transparent;
+  border-right: 0px solid transparent;
+  border-bottom: 3.125em solid #e8ebf0;
+  left: -0.77em;
+}
+.base:after {
+  border-right: 0.813em solid transparent;
+  border-left: 0px solid transparent;
+  border-bottom: 3.125em solid #e8ebf0;
+  right: -0.77em;
+}
+.base > div {
+  position: absolute;
+}
+.grey-shadow {
+  width: 5.625em;
+  height: 0.75em;
+  background: #d8dbe1;
+  top: 0;
+}
+.grey-shadow:before {
+  border-left: 3px solid transparent;
+  border-right: 0px solid transparent;
+  border-bottom: 0.75em solid #d8dbe1;
+  left: -3px;
+}
+.grey-shadow:after {
+  border-right: 3px solid transparent;
+  border-left: 0px solid transparent;
+  border-bottom: 0.75em solid #d8dbe1;
+  right: -2px;
+  z-index: 1;
+}
+.foot {
+  background: #e8ebf0;
+}
+.foot.top {
+  width: 7.25em;
+  height: 0.313em;
+  bottom: -0.3em;
+  left: 50%;
+  margin-left: -3.625em;
+}
+.foot.top:before,
+.foot.top:after,
+.foot.bottom:before {
+  content: "";
+  position: absolute;
+  top: 0px;
+}
+.foot.top:before {
+  border-left: 16px solid transparent;
+  border-right: 0px solid transparent;
+  border-bottom: 5px solid #e8ebf0;
+  left: -16px;
+}
+.foot.top:after {
+  border-right: 1em solid transparent;
+  border-left: 0px solid transparent;
+  border-bottom: 5px solid #e8ebf0;
+  right: -1em;
+}
+.foot.bottom {
+  width: 9.375em;
+  height: 0.313em;
+  bottom: -0.625em;
+  left: 50%;
+  margin-left: -4.688em;
+}
+.laptop {
+  width: 14.688em;
+  height: 9.688em;
+  background: #f8f8f8;
+  border: 0.75em solid #1f1f1f;
+  border-radius: 0.625em 0.625em 0 0;
+  position: absolute;
+  top: 14.5em;
+  right: 1.875em;
+  right: 50%;
+  margin-right: -19.5em;
+  z-index: 10;
+}
+.laptop:before {
+  top: -0.3em;
+}
+.laptop > div {
+  position: absolute;
+}
+.laptop > .screen {
+  width: 13.188em;
+  height: 8.188em;
+  left: 0;
+  margin-left: 0;
+  background: #fff;
+  overflow: hidden;
+}
+.btm {
+  width: 18.5em;
+  height: 0.625em;
+  bottom: -1.188em;
+  left: 50%;
+  margin-left: -9.25em;
+  border-radius: 0 0 20px 20px;
+  background: #e8ebf0;
+  z-index: 1;
+}
+.btm:before {
+  content: "";
+  position: absolute;
+  width: 2.625em;
+  height: 0.25em;
+  left: 50%;
+  top: 0;
+  margin-left: -1.313em;
+  border-radius: 0 0 0.313em 0.313em;
+  background: #d8dbe1;
+}
+.btm:after {
+  display: none;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0.25rem;
+  background: #bababa;
+  top: 0.5rem;
+  border-bottom-right-radius: 7.5rem 2.5rem;
+  border-bottom-left-radius: 7.5rem 2.5rem;
+}
+.phone {
+  width: 4.125em;
+  height: 8.75em;
+  position: absolute;
+  top: 15.75em;
+  left: 1em;
+  left: 50%;
+  margin-left: -20.5em;
+  border-radius: 0.5em;
+  background: #1f1f1f;
+  border: 1.563em solid #1f1f1f;
+  border-left: 0.313em solid #1f1f1f;
+  border-right: 0.313em solid #1f1f1f;
+  margin-left: ;
+}
+.phone:before,
+.phone:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  background: #474e5d;
+}
+.phone:before {
+  background: #474e5d;
+  width: 1.25em;
+  height: 0.25em;
+  margin-left: -0.625em;
+  top: -0.75em;
+  border-radius: 2px;
+}
+.phone:after {
+  width: 0.625em;
+  height: 0.625em;
+  border-radius: 0.625em;
+  bottom: -1.125em;
+  margin-left: -0.313em;
+}
+.phone .screen {
+  width: 3.5em;
+  height: 5.625em;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+}
+.phone .txt > li {
+  height: 1.125em;
+}
+.screen .txt > li.txt-half {
+  width: 46%;
+  margin-right: 8%;
+  display: inline-block;
+}
+.screen .txt > li.txt-half:nth-of-type(even) {
+  margin-right: 0;
+}
+.ipad {
+  width: 8.75em;
+  height: 12.75em;
+  position: absolute;
+  top: 11.7em;
+  left: 6em;
+  left: 50%;
+  margin-left: -15.5em;
+  border-radius: 0.5em;
+  background: #1f1f1f;
+  border: 1.563em solid #1f1f1f;
+  border-left: 0.313em solid #1f1f1f;
+  border-right: 0.313em solid #1f1f1f;
+}
+.ipad:before,
+.ipad:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  background: #474e5d;
+}
+.ipad:before {
+  background: #474e5d;
+  width: 1.25em;
+  height: 0.25em;
+  margin-left: -0.625em;
+  top: -0.75em;
+  border-radius: 2px;
+}
+.ipad:after {
+  width: 0.625em;
+  height: 0.625em;
+  border-radius: 0.625em;
+  bottom: -1.125em;
+  margin-left: -0.313em;
+}
+.ipad .screen {
+  width: 8em;
+  height: 9.8em;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+}
+.ipad .content {
+  width: 100%;
+  left: 0%;
+  margin-left: 0px;
+}
+.ipad li.txt-half {
+  height: 35px;
+}
