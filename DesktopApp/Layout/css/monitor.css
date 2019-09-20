@@ -12,7 +12,7 @@ body {
     font-family: "Roboto";
     font-style: normal;
     font-weight: normal;
-    background-image: url('../../img/monitor_Main.png');
+    background-image: url('../img/monitor_Main.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

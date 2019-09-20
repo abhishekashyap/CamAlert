@@ -10,7 +10,7 @@ body {
     margin: 0;
     height: 100vh;
     background-color: rgba(25, 91, 122, 0.904);
-    background-image: url('../../img/recordbg.jpg');
+    background-image: url('../img/recordbg.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

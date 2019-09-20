@@ -39,16 +39,28 @@ if (device_type == 'mobile') {
 */
 
 // SERVING HTML PAGES
-app.use("/Layouts/css", express.static('assets'));
-app.get("/monitor", (req, res) => {
+app.use(express.static(__dirname + '/Layout'));
+app.use(express.static(__dirname + '/img'));
+
+app.get("/monitor.html", (req, res) => {
   console.log("accessed monitor");
   res.sendFile(path.join(__dirname, "Layout/html/monitor.html"));
   res.sendFile(path.join(__dirname, "Layout/html/monitor-electron.html"));
   //device_type = req.device.type;
 });
-app.get("/record", (req, res) => {
+app.get("/record.html", (req, res) => {
   console.log("accessed record");
   res.sendFile(path.join(__dirname, "Layout/html/record.html"));
+  //device_type = req.device.type;
+});
+app.get("/main.html", (req, res) => {
+  console.log("accessed main");
+  res.sendFile(path.join(__dirname, "Layout/html/main.html"));
+  //device_type = req.device.type;
+});
+app.get("/upload.html", (req, res) => {
+  console.log("accessed main");
+  res.sendFile(path.join(__dirname, "Layout/html/upload.html"));
   //device_type = req.device.type;
 });
 app.get("/", (req, res) => {

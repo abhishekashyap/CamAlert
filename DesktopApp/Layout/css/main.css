@@ -48,15 +48,15 @@ a {
 }
 
 #monitor {
-    background-image: url("../../img/monitor.jpg");
+    background-image: url("../img/monitor.jpg");
 }
 
 #record {
-    background-image: url("../../img/record.png");
+    background-image: url("../img/record.png");
 }
 
 #upload {
-    background-image: url("../../img/upload.jpg");
+    background-image: url("../img/upload.jpg");
 }
 
 body {

@@ -11,7 +11,7 @@ body {
     font-style: normal;
     font-weight: normal;
     height: 100vh;
-    background-image: url(../../img/monitorbg.jpg);
+    background-image: url('../img/monitorbg.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
