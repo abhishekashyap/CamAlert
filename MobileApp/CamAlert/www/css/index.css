@@ -1,7 +1,7 @@
 * {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    padding:0;
-    margin:0;
+    padding: 0;
+    margin: 0;
     /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
 
@@ -34,69 +34,61 @@ body {
     font-size: 5vh;
     cursor: pointer;
     margin: 2vh;
-    display:block;
+    display: block;
     position: absolute;
-    z-index:1;
-    top:0.5vh;
+    z-index: 1;
+    top: 0.5vh;
 }
-#BackButton
-{
+
+#BackButton {
     color: white;
     font-size: 5vh;
     cursor: pointer;
     margin: 2vh;
-    display:none;
+    display: none;
     position: absolute;
-    z-index:1;
-    top:0.5vh;
-    right:1vh;
+    z-index: 1;
+    top: 0.5vh;
+    right: 1vh;
 }
-
-
 
 .navmenu {
-    position:relative;
+    position: relative;
     z-index: 3;
-    display:block;
-    width:0;
-    height:100vh;
+    display: block;
+    width: 0;
+    height: 100vh;
     background-color: #5677fc;
-    overflow:hidden;
-    
-    box-shadow: 40vw 0vw 30vh  rgba(0, 0, 0, 0.616);
+    overflow: hidden;
+    box-shadow: 40vw 0vw 30vh rgba(0, 0, 0, 0.616);
     font-size: 4vh;
     transition: all 0.1s;
-   
 }
-#navback{
-    z-index:3;
-    width:50vw;
-    height:100vh;
-    
-   display:block;
-    position:relative;
+
+#navback {
+    z-index: 3;
+    width: 50vw;
+    height: 100vh;
+    display: block;
+    position: relative;
 }
 
 .navmenu a {
-    
     text-decoration: none;
-   
     color: white;
     display: block;
     transition: 0.5s;
     padding: 1vh 1vh 1vh 3vh;
     font-family: 'century gothic', Arial, sans-serif;
-    
-}
-.closebtn{
-    position:absolute;
-    
-    margin-bottom:1vh;
-    font-size: 5vh;
-    z-index:3;
-    right:0.5vh;
 }
 
+.closebtn {
+    position: absolute;
+    margin-bottom: 1vh;
+    font-size: 5vh;
+    z-index: 3;
+    right: 0.5vh;
+}
 
 
 /* Portrait layout (default) */
@@ -107,20 +99,20 @@ body {
     display: flex;
     position: relative;
     overflow: hidden;
-    flex-direction:column;
+    flex-direction: column;
 }
-#nav-container
-{
-    height:100vh;
-    width:100vw;
-    left:0;
-    
-    overflow:hidden;
-    display:none;
-    position:absolute;
-    z-index:2;
-    flex-direction:row;
+
+#nav-container {
+    height: 100vh;
+    width: 100vw;
+    left: 0;
+    overflow: hidden;
+    display: none;
+    position: absolute;
+    z-index: 2;
+    flex-direction: row;
 }
+
 .heading {
     color: white;
     font-size: 6vh;
@@ -129,40 +121,62 @@ body {
     text-align: center;
 }
 
-#cont1{
+#cont1 {
     background-image: url(../img/video-1613996_1280.png);
     background-position: center;
     background-size: cover;
-    height:50vh;
+    height: 50vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
 }
 
-#cont2{
+#cont2 {
     background-image: url(../img/5431965.jpg);
     background-position: center;
     background-size: cover;
-    height:50vh;
+    height: 50vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 }
 
+
 /* Different Menus */
-#Record{                                   /*Record Menu*/
+
+#Record {
+    /*Record Menu*/
     position: absolute;
-    width:100vw;
-    top:0;
-    background-color:bisque;
+    width: 100vw;
+    top: 0;
+    background-color: bisque;
 }
-#Monitor{                                   /*Monitor Menu*/
-    position:absolute;
-    width:100vw;
-    bottom:0;
-    background-color:rebeccapurple;
-}
-#ContactUs{                             /*Contact Menu*/
+
+#Monitor {
+    /*Monitor Menu*/
     position: absolute;
-    bottom:0.5vh;
+    width: 100vw;
+    height: 0;
+    bottom: 0;
+    background-image: url(../img/MonitorMain.png);
+    background-size: cover;
+    background-position: center;
+    background-color: white;
+    overflow: hidden;
+    /* text-align: center; */
+}
+
+#ContactUs {
+    /*Contact Menu*/
+    position: absolute;
+    bottom: 0.5vh;
+}
+
+.monitorMain {
+    background-color: black;
+    border: 1vw solid rgb(102, 102, 102);
+    border-radius: 3%;
+    height: 80vh;
+    width: 90vw;
+    margin: 10vh 4vw;
 }
