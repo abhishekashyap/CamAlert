@@ -55,9 +55,13 @@ a {
 #upload {
   background-image: url("../../img/upload.jpg");
 }
-
+body{
+  height: 100vh;
+  width: auto;
+  background-size: cover;
+  background-position: center;
+}
 .container {
-  /* padding: 0 10%; */
   height: 100vh;
   width: auto;
   background-size: cover;
