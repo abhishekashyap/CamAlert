@@ -9,7 +9,7 @@
 * {
   padding: 0;
   margin: 0;
-  -webkit-app-region: drag;
+  /* -webkit-app-region: drag; */
 }
 
 .center {
