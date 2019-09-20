@@ -51,7 +51,7 @@ app.get("/", (req, res) => {
 
 var num = 0; // Used to initialize image number
 
-function notify() {
+function notifyCall() {
   notifier.notify({
     title: 'Alert !!!',
     message: 'Intruder Detected\n' + d.getDate() + '-' + d.getMonth() + '-' + d.getFullYear() + '\n' + d.getHours() + ':' + d.getMinutes(),
@@ -121,6 +121,8 @@ setInterval(() => {
   });
 
   // Run the comparison
+  var res = true;
+
   rembrandt
     .compare()
     .then(function (result) {
@@ -130,12 +132,13 @@ setInterval(() => {
       console.log("Composition image buffer:", result.compositionImage);
 
       console.log(typeof (result.passed));
-      var res = result.passed
-      if (res === true) {
-        notify();
-      }
+      res = result.passed;
 
       // Note that `compositionImage` is an Image when Rembrandt.js is run in the browser environment
+    }, (res) => {
+      if (res == true) {
+        notifyCall();
+      }
     })
     .catch(e => {
       console.error(e);
