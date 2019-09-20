@@ -39,7 +39,7 @@ if (device_type == 'mobile') {
 */
 
 // SERVING HTML PAGES
-
+app.use("/Layouts/css", express.static('assets'));
 app.get("/monitor", (req, res) => {
   console.log("accessed monitor");
   res.sendFile(path.join(__dirname, "Layout/html/monitor.html"));
