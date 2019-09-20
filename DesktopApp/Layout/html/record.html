@@ -23,14 +23,15 @@
         </div>
         <a class="nav-items" href="about.html" style="justify-self: flex-end;">About Us</a>
     </nav>
-    
+
     <header>
         <h1 style="text-align: center">MediaCapture, MediaRecorder and Streams API</h1>
     </header>
+    
     <main>
         <div class="vid-container">
-            <video class="lt-player player" width="320" height="240" controls></video>
-            <video class="rt-player player" width="320" height="240" id="vid2" controls></video>
+            <video class="player" controls></video>
+            <video class="player" id="vid2" controls></video>
         </div>
 
         <!-- could save to canvas and do image manipulation and saving too -->
@@ -39,6 +40,7 @@
             <button id="btnStop" class="btn">STOP RECORDING</button>
         </div>
     </main>
+    
     <script>
         let constraintObj = {
             audio: false,

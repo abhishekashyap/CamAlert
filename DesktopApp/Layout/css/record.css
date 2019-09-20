@@ -20,10 +20,13 @@ body {
 }
 
 .btn {
+    font-size: 1vw;
     margin: 1vw;
     color: white;
     padding: 0.6vw;
-    border-width: 0.2vw;
+    height: 8vh;
+    width: 18vw;
+    border-width: .5vw;
     border-color: white;
     background: transparent;
     transition: 0.5s ease-in-out;
@@ -44,6 +47,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-items: flex-end;
 }
 
 .vid-container {
@@ -56,9 +60,8 @@ main {
 
 .player {
     border: 1px solid white;
-    /* display: flex;
-    flex-direction: column-reverse;
-    align-self: center; */
+    height: 30vh;
+    width: 24vw;
     padding: 1vw;
     margin: 1vw;
 }
