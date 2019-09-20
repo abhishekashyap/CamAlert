@@ -20,13 +20,14 @@
         <div id="sideMenu" class="navmenu">
             <a href="#" class="closebtn" onclick="closeMenu()">&times;</a>
             <br />
-            <a class="nav-links" href="#" onclick="navOptionSelect(1)"><i class="fa fa-home"></i>  Home</a>
+            <a class="nav-links" href="#" onclick="navOptionSelect(1)"><i class="fa fa-home"></i> Home</a>
 
-            <a class="nav-links" href="#" onclick="navOptionSelect(2)"><i class="fa fa-video-camera"></i>  Record</a>
+            <a class="nav-links" href="#" onclick="navOptionSelect(2)"><i class="fa fa-video-camera"></i> Record</a>
 
-            <a class="nav-links" href="#" onclick="navOptionSelect(3)"><i class="fa fa-desktop"></i>  Monitor</a>
+            <a class="nav-links" href="#" onclick="navOptionSelect(3)"><i class="fa fa-desktop"></i> Monitor</a>
 
-            <a class="nav-links" href="#" id="ContactUs" onclick="navOptionSelect(4)"><i class="fa fa-user"></i>  Contact Us</a>
+            <a class="nav-links" href="#" id="ContactUs" onclick="navOptionSelect(4)"><i class="fa fa-user"></i> Contact
+                Us</a>
 
         </div>
         <div id="navback" onclick="closeMenu()"></div>
@@ -50,149 +51,151 @@
     </div>
 
     <div id="Record">
-        <div class="recordMain">
-                <main>
-                  <video class="screen" controls></video>
-                </main>
-            </div>
-            <div class="recordMain">
-                <main>
-                  <video class="screen" id="vid2" controls></video>
-              </main>
-            </div>
-                  <!-- could save to canvas and do image manipulation and saving too -->
-                
-                <script>
-                  let constraintObj = {
-                    audio: false,
-                    video: {
-                      facingMode: "user",
-                      width: { min: 640, ideal: 1280, max: 1920 },
-                      height: { min: 480, ideal: 720, max: 1080 }
-                    }
-                  };
-                  // width: 1280, height: 720  -- preference only
-                  // facingMode: {exact: "user"}
-                  // facingMode: "environment"
+        <div class="recordMain" style="margin-top:10vh;">
+            
+                <video class="screen" controls></video>
               
-                  //handle older browsers that might implement getUserMedia in some way
-                  if (navigator.mediaDevices === undefined) {
-                    navigator.mediaDevices = {};
-                    navigator.mediaDevices.getUserMedia = function (constraintObj) {
-                      let getUserMedia =
+            
+        </div>
+        <div class="recordMain">
+            
+                <video class="screen" id="vid2" controls>RecordedFeed</video>
+             
+            
+        </div>
+        <!-- could save to canvas and do image manipulation and saving too -->
+
+        <script>
+            let constraintObj = {
+                audio: false,
+                video: {
+                    facingMode: "user",
+                    width: { min: 640, ideal: 1280, max: 1920 },
+                    height: { min: 480, ideal: 720, max: 1080 }
+                }
+            };
+            // width: 1280, height: 720  -- preference only
+            // facingMode: {exact: "user"}
+            // facingMode: "environment"
+
+            //handle older browsers that might implement getUserMedia in some way
+            if (navigator.mediaDevices === undefined) {
+                navigator.mediaDevices = {};
+                navigator.mediaDevices.getUserMedia = function (constraintObj) {
+                    let getUserMedia =
                         navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
-                      if (!getUserMedia) {
+                    if (!getUserMedia) {
                         return Promise.reject(
-                          new Error("getUserMedia is not implemented in this browser")
+                            new Error("getUserMedia is not implemented in this browser")
                         );
-                      }
-                      return new Promise(function (resolve, reject) {
+                    }
+                    return new Promise(function (resolve, reject) {
                         getUserMedia.call(navigator, constraintObj, resolve, reject);
-                      });
-                    };
-                  } else {
-                    navigator.mediaDevices
-                      .enumerateDevices()
-                      .then(devices => {
+                    });
+                };
+            } else {
+                navigator.mediaDevices
+                    .enumerateDevices()
+                    .then(devices => {
                         devices.forEach(device => {
-                          console.log(device.kind.toUpperCase(), device.label);
-                          //, device.deviceId
+                            console.log(device.kind.toUpperCase(), device.label);
+                            //, device.deviceId
                         });
-                      })
-                      .catch(err => {
+                    })
+                    .catch(err => {
                         console.log(err.name, err.message);
-                      });
-                  }
-                  navigator.mediaDevices
-                    .getUserMedia(constraintObj)
-                    .then(function (mediaStreamObj) {
-                      //connect the media stream to the first video element
-                      let video = document.querySelector("video");
-                      if ("srcObject" in video) {
+                    });
+            }
+            navigator.mediaDevices
+                .getUserMedia(constraintObj)
+                .then(function (mediaStreamObj) {
+                    //connect the media stream to the first video element
+                    let video = document.querySelector("video");
+                    if ("srcObject" in video) {
                         video.srcObject = mediaStreamObj;
-                      } else {
+                    } else {
                         //old version
                         video.src = window.URL.createObjectURL(mediaStreamObj);
-                      }
-              
-                      video.onloadedmetadata = function (ev) {
+                    }
+
+                    video.onloadedmetadata = function (ev) {
                         //show in the video element what is being captured by the webcam
                         video.play();
-                      };
-              
-                      //add listeners for saving video/audio
-                      let start = document.getElementById("btnStart");
-                      let stop = document.getElementById("btnStop");
-                      let vidSave = document.getElementById("vid2");
-                      let mediaRecorder = new MediaRecorder(mediaStreamObj);
-                      let chunks = [];
-              
-                      start.addEventListener("click", ev => {
+                    };
+
+                    //add listeners for saving video/audio
+                    let start = document.getElementById("btnStart");
+                    let stop = document.getElementById("btnStop");
+                    let vidSave = document.getElementById("vid2");
+                    let mediaRecorder = new MediaRecorder(mediaStreamObj);
+                    let chunks = [];
+
+                    start.addEventListener("click", ev => {
                         mediaRecorder.start();
                         console.log(mediaRecorder.state);
-                      });
-                      stop.addEventListener("click", ev => {
+                    });
+                    stop.addEventListener("click", ev => {
                         mediaRecorder.stop();
                         console.log(mediaRecorder.state);
-                      });
-                      mediaRecorder.ondataavailable = function (ev) {
+                    });
+                    mediaRecorder.ondataavailable = function (ev) {
                         chunks.push(ev.data);
-                      };
-                      mediaRecorder.onstop = ev => {
+                    };
+                    mediaRecorder.onstop = ev => {
                         let blob = new Blob(chunks, { type: "video/mp4;" });
                         chunks = [];
                         let videoURL = window.URL.createObjectURL(blob);
                         vidSave.src = videoURL;
-                      };
-                    })
-                    .catch(function (err) {
-                      console.log(err.name, err.message);
-                    });
-              
-                  // setup canvas
-                  var ctx = createCanvas("canvas1"); // sample the colour of every 50 pixels
-                  var sample_size = 50;
-                  function draw() {
-                    // draw video onto screen
-                    ctx.drawImage(video, 0, 0, w, h); // get the screen's pixels data
-                    var data = ctx.getImageData(0, 0, w, h).data; // loop through rows and columns
-                    for (var y = 0; y < h; y += sample_size) {
-                      for (var x = 0; x < w; x += sample_size) {
+                    };
+                })
+                .catch(function (err) {
+                    console.log(err.name, err.message);
+                });
+
+            // setup canvas
+            var ctx = createCanvas("canvas1"); // sample the colour of every 50 pixels
+            var sample_size = 50;
+            function draw() {
+                // draw video onto screen
+                ctx.drawImage(video, 0, 0, w, h); // get the screen's pixels data
+                var data = ctx.getImageData(0, 0, w, h).data; // loop through rows and columns
+                for (var y = 0; y < h; y += sample_size) {
+                    for (var x = 0; x < w; x += sample_size) {
                         // the data array is a continuous array of red, blue, green
                         // and alpha values, so each pixel takes up four values
                         // in the array
                         var pos = (x + y * w) * 4;
-              
+
                         // get red, blue and green pixel value
                         var r = data[pos];
                         var g = data[pos + 1];
                         var b = data[pos + 2]; // draw the pixels as blocks of colours
                         ctx.fillStyle = rgb(r, g, b);
                         ctx.fillRect(x, y, sample_size, sample_size);
-                      }
                     }
-                    ctx.background(250);
-                    var motion = motionDetection();
-                    for (i = 0; i < motion.length; i++) {
-                      var m = motion[i];
-                      ctx.fillStyle = rgb(m.r, m.g, m.b);
-                      ctx.fillEllipse(m.x, m.y, sample_size, sample_size);
-                    }
-                  }
-              
-                  // make an array to hold our old pixel values
-                  var previous_frame = [];
-                  // choose a brightness threshold, if the old pixel values differs enough then we know there's movement
-                  var threshold = 50;
-                  // sample the colour every 50 pixels
-                  var sample_size = 50;
-                  function draw() {
-                    ctx.drawImage(video, 0, 0, w, h);
-                    var data = ctx.getImageData(0, 0, w, h).data;
-                    ctx.background(0);
-              
-                    for (var y = 0; y < h; y += sample_size) {
-                      for (var x = 0; x < w; x += sample_size) {
+                }
+                ctx.background(250);
+                var motion = motionDetection();
+                for (i = 0; i < motion.length; i++) {
+                    var m = motion[i];
+                    ctx.fillStyle = rgb(m.r, m.g, m.b);
+                    ctx.fillEllipse(m.x, m.y, sample_size, sample_size);
+                }
+            }
+
+            // make an array to hold our old pixel values
+            var previous_frame = [];
+            // choose a brightness threshold, if the old pixel values differs enough then we know there's movement
+            var threshold = 50;
+            // sample the colour every 50 pixels
+            var sample_size = 50;
+            function draw() {
+                ctx.drawImage(video, 0, 0, w, h);
+                var data = ctx.getImageData(0, 0, w, h).data;
+                ctx.background(0);
+
+                for (var y = 0; y < h; y += sample_size) {
+                    for (var x = 0; x < w; x += sample_size) {
                         var pos = (x + y * w) * 4;
                         var r = data[pos];
                         var g = data[pos + 1];
@@ -201,26 +204,26 @@
                         // is not we empty, and then only draw something if there's
                         // a significant colour difference
                         if (
-                          previous_frame[pos] &&
-                          Math.abs(previous_frame[pos] - r) > threshold
+                            previous_frame[pos] &&
+                            Math.abs(previous_frame[pos] - r) > threshold
                         ) {
-                          ctx.fillStyle = rgb(r, g, b);
-                          ctx.fillRect(x, y, sample_size, sample_size);
+                            ctx.fillStyle = rgb(r, g, b);
+                            ctx.fillRect(x, y, sample_size, sample_size);
                         } // store these colour values to compare to the next frame
                         previous_frame[pos] = r;
-                      }
                     }
-                  }
-              
-                  function motionDetection() {
-                    // create an array to store our motion data
-                    var motion = [];
-                    ctx.drawImage(video, 0, 0, w, h);
-                    var data = ctx.getImageData(0, 0, w, h).data;
-                    ctx.background(0);
-              
-                    for (var y = 0; y < h; y += sample_size) {
-                      for (var x = 0; x < w; x += sample_size) {
+                }
+            }
+
+            function motionDetection() {
+                // create an array to store our motion data
+                var motion = [];
+                ctx.drawImage(video, 0, 0, w, h);
+                var data = ctx.getImageData(0, 0, w, h).data;
+                ctx.background(0);
+
+                for (var y = 0; y < h; y += sample_size) {
+                    for (var x = 0; x < w; x += sample_size) {
                         var pos = (x + y * w) * 4;
                         var r = data[pos];
                         var g = data[pos + 1];
@@ -231,49 +234,50 @@
                         ctx.drawImage(video, 0, 0, w, h);
                         var data = ctx.getImageData(0, 0, w, h).data;
                         ctx.background(0);
-              
+
                         for (var y = 0; y < h; y += sample_size) {
-                          for (var x = 0; x < w; x += sample_size) {
-                            var pos = (x + y * w) * 4;
-                            var r = data[pos];
-                            var g = data[pos + 1];
-                            var b = data[pos + 2]; // first check if it's not the first frame, but
-                            // seeing of when the previous_frame array
-                            // is not we empty, and then only draw something if
-                            // a significant colour difference there's
-                            if (
-                              previous_frame[pos] &&
-                              Math.abs(previous_frame[pos] - r) > threshold
-                            ) {
-                              // push the x, y and rgb values into the motion array
-                              motion.push({ x: x, y: y, r: r, g: g, b: b });
-                            } // store these colour values to compare to the next frame
-                            previous_frame[pos] = r;
-                          }
+                            for (var x = 0; x < w; x += sample_size) {
+                                var pos = (x + y * w) * 4;
+                                var r = data[pos];
+                                var g = data[pos + 1];
+                                var b = data[pos + 2]; // first check if it's not the first frame, but
+                                // seeing of when the previous_frame array
+                                // is not we empty, and then only draw something if
+                                // a significant colour difference there's
+                                if (
+                                    previous_frame[pos] &&
+                                    Math.abs(previous_frame[pos] - r) > threshold
+                                ) {
+                                    // push the x, y and rgb values into the motion array
+                                    motion.push({ x: x, y: y, r: r, g: g, b: b });
+                                } // store these colour values to compare to the next frame
+                                previous_frame[pos] = r;
+                            }
                         }
                         return motion;
-                      }
                     }
-                  }
-              
-                  /*********************************
-                        getUserMedia returns a Promise
-                        resolve - returns a MediaStream Object
-                        reject returns one of the following errors
-                        AbortError - generic unknown cause
-                        NotAllowedError (SecurityError) - user rejected permissions
-                        NotFoundError - missing media track
-                        NotReadableError - user permissions given but hardware/OS error
-                        OverconstrainedError - constraint video settings preventing
-                        TypeError - audio: false, video: false
-                        *********************************/
-                </script>
-        </div>
+                }
+            }
+
+            /*********************************
+                  getUserMedia returns a Promise
+                  resolve - returns a MediaStream Object
+                  reject returns one of the following errors
+                  AbortError - generic unknown cause
+                  NotAllowedError (SecurityError) - user rejected permissions
+                  NotFoundError - missing media track
+                  NotReadableError - user permissions given but hardware/OS error
+                  OverconstrainedError - constraint video settings preventing
+                  TypeError - audio: false, video: false
+                  *********************************/
+        </script>
+
         <div class="control-container">
-            <button id="btnStart">START RECORDING</button><br />
-            <button id="btnStop">STOP RECORDING</button>
+            <button id="btnStart" class="ctrl-btn">START RECORDING</button>
+            <button id="btnStop" class="ctrl-btn">STOP RECORDING</button>
         </div>
     </div>
+
 
     <div id="Monitor">
         <div class="monitorMain">

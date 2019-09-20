@@ -33,7 +33,7 @@ var app = {
 function navAnimate() {             //Fade in effect on open
     $("#sideMenu a").show(400);     
     $("#sideMenu").animate({
-        width:'240px'
+        width:'50vw'
     });
     $("#nav-container").css("display","flex");
 };
