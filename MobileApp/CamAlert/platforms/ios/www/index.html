@@ -1,49 +1,293 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
-    <head>
-        <!--
-        Customize this policy to fit your own app's needs. For more guidance, see:
-            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
-        Some notes:
-            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-                * Enable inline JS: add 'unsafe-inline' to default-src
-        -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-        <title>Hello World</title>
-    </head>
-    <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
+
+<head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <link rel="stylesheet" type="text/css" href="./css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>CamAlert</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <!--Navbar Starts-->
+    <div id="nav-container">
+        <div id="sideMenu" class="navmenu">
+            <a href="#" class="closebtn" onclick="closeMenu()">&times;</a>
+            <br />
+            <a class="nav-links" href="#" onclick="navOptionSelect(1)"><i class="fa fa-home"></i> Home</a>
+
+            <a class="nav-links" href="#" onclick="navOptionSelect(2)"><i class="fa fa-video-camera"></i> Record</a>
+
+            <a class="nav-links" href="#" onclick="navOptionSelect(3)"><i class="fa fa-desktop"></i> Monitor</a>
+
+            <a class="nav-links" href="#" id="ContactUs" onclick="navOptionSelect(4)"><i class="fa fa-user"></i> Contact
+                Us</a>
+
         </div>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-    </body>
+        <div id="navback" onclick="closeMenu()"></div>
+    </div>
+
+    <!--Navbar Ends-->
+    <span id="NavButton" onclick="navAnimate()">&#9776;</span>
+    <span id="BackButton" onclick="backAnimate()">&larr;</span>
+
+    <!-- Main options in the home page -->
+    <div class="container">
+
+        <div id="cont1" onclick="navOptionSelect(2)">
+            <h1 class="heading" style="margin-top: 36vh">RECORD</h1>
+        </div>
+
+        <div id="cont2" onclick="navOptionSelect(3)">
+            <h1 class="heading" style="margin-top: 1.5vh">MONITOR</h1>
+        </div>
+
+    </div>
+
+    <div id="Record">
+        <div class="recordMain" style="margin-top:10vh;">
+            
+                <video class="screen" controls></video>
+              
+            
+        </div>
+        <div class="recordMain">
+            
+                <video class="screen" id="vid2" controls>RecordedFeed</video>
+             
+            
+        </div>
+        <!-- could save to canvas and do image manipulation and saving too -->
+
+        <script>
+            let constraintObj = {
+                audio: false,
+                video: {
+                    facingMode: "user",
+                    width: { min: 640, ideal: 1280, max: 1920 },
+                    height: { min: 480, ideal: 720, max: 1080 }
+                }
+            };
+            // width: 1280, height: 720  -- preference only
+            // facingMode: {exact: "user"}
+            // facingMode: "environment"
+
+            //handle older browsers that might implement getUserMedia in some way
+            if (navigator.mediaDevices === undefined) {
+                navigator.mediaDevices = {};
+                navigator.mediaDevices.getUserMedia = function (constraintObj) {
+                    let getUserMedia =
+                        navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+                    if (!getUserMedia) {
+                        return Promise.reject(
+                            new Error("getUserMedia is not implemented in this browser")
+                        );
+                    }
+                    return new Promise(function (resolve, reject) {
+                        getUserMedia.call(navigator, constraintObj, resolve, reject);
+                    });
+                };
+            } else {
+                navigator.mediaDevices
+                    .enumerateDevices()
+                    .then(devices => {
+                        devices.forEach(device => {
+                            console.log(device.kind.toUpperCase(), device.label);
+                            //, device.deviceId
+                        });
+                    })
+                    .catch(err => {
+                        console.log(err.name, err.message);
+                    });
+            }
+            navigator.mediaDevices
+                .getUserMedia(constraintObj)
+                .then(function (mediaStreamObj) {
+                    //connect the media stream to the first video element
+                    let video = document.querySelector("video");
+                    if ("srcObject" in video) {
+                        video.srcObject = mediaStreamObj;
+                    } else {
+                        //old version
+                        video.src = window.URL.createObjectURL(mediaStreamObj);
+                    }
+
+                    video.onloadedmetadata = function (ev) {
+                        //show in the video element what is being captured by the webcam
+                        video.play();
+                    };
+
+                    //add listeners for saving video/audio
+                    let start = document.getElementById("btnStart");
+                    let stop = document.getElementById("btnStop");
+                    let vidSave = document.getElementById("vid2");
+                    let mediaRecorder = new MediaRecorder(mediaStreamObj);
+                    let chunks = [];
+
+                    start.addEventListener("click", ev => {
+                        mediaRecorder.start();
+                        console.log(mediaRecorder.state);
+                    });
+                    stop.addEventListener("click", ev => {
+                        mediaRecorder.stop();
+                        console.log(mediaRecorder.state);
+                    });
+                    mediaRecorder.ondataavailable = function (ev) {
+                        chunks.push(ev.data);
+                    };
+                    mediaRecorder.onstop = ev => {
+                        let blob = new Blob(chunks, { type: "video/mp4;" });
+                        chunks = [];
+                        let videoURL = window.URL.createObjectURL(blob);
+                        vidSave.src = videoURL;
+                    };
+                })
+                .catch(function (err) {
+                    console.log(err.name, err.message);
+                });
+
+            // setup canvas
+            var ctx = createCanvas("canvas1"); // sample the colour of every 50 pixels
+            var sample_size = 50;
+            function draw() {
+                // draw video onto screen
+                ctx.drawImage(video, 0, 0, w, h); // get the screen's pixels data
+                var data = ctx.getImageData(0, 0, w, h).data; // loop through rows and columns
+                for (var y = 0; y < h; y += sample_size) {
+                    for (var x = 0; x < w; x += sample_size) {
+                        // the data array is a continuous array of red, blue, green
+                        // and alpha values, so each pixel takes up four values
+                        // in the array
+                        var pos = (x + y * w) * 4;
+
+                        // get red, blue and green pixel value
+                        var r = data[pos];
+                        var g = data[pos + 1];
+                        var b = data[pos + 2]; // draw the pixels as blocks of colours
+                        ctx.fillStyle = rgb(r, g, b);
+                        ctx.fillRect(x, y, sample_size, sample_size);
+                    }
+                }
+                ctx.background(250);
+                var motion = motionDetection();
+                for (i = 0; i < motion.length; i++) {
+                    var m = motion[i];
+                    ctx.fillStyle = rgb(m.r, m.g, m.b);
+                    ctx.fillEllipse(m.x, m.y, sample_size, sample_size);
+                }
+            }
+
+            // make an array to hold our old pixel values
+            var previous_frame = [];
+            // choose a brightness threshold, if the old pixel values differs enough then we know there's movement
+            var threshold = 50;
+            // sample the colour every 50 pixels
+            var sample_size = 50;
+            function draw() {
+                ctx.drawImage(video, 0, 0, w, h);
+                var data = ctx.getImageData(0, 0, w, h).data;
+                ctx.background(0);
+
+                for (var y = 0; y < h; y += sample_size) {
+                    for (var x = 0; x < w; x += sample_size) {
+                        var pos = (x + y * w) * 4;
+                        var r = data[pos];
+                        var g = data[pos + 1];
+                        var b = data[pos + 2]; // first check if it's not the first frame, but
+                        // seeing of when the previous_frame array
+                        // is not we empty, and then only draw something if there's
+                        // a significant colour difference
+                        if (
+                            previous_frame[pos] &&
+                            Math.abs(previous_frame[pos] - r) > threshold
+                        ) {
+                            ctx.fillStyle = rgb(r, g, b);
+                            ctx.fillRect(x, y, sample_size, sample_size);
+                        } // store these colour values to compare to the next frame
+                        previous_frame[pos] = r;
+                    }
+                }
+            }
+
+            function motionDetection() {
+                // create an array to store our motion data
+                var motion = [];
+                ctx.drawImage(video, 0, 0, w, h);
+                var data = ctx.getImageData(0, 0, w, h).data;
+                ctx.background(0);
+
+                for (var y = 0; y < h; y += sample_size) {
+                    for (var x = 0; x < w; x += sample_size) {
+                        var pos = (x + y * w) * 4;
+                        var r = data[pos];
+                        var g = data[pos + 1];
+                        var b = data[pos + 2]; // first check if it's not the first frame, but
+                        // seeing of when the previous_frame array
+                        // is not we empty, and then only draw something if there's
+                        // a significant colour difference
+                        ctx.drawImage(video, 0, 0, w, h);
+                        var data = ctx.getImageData(0, 0, w, h).data;
+                        ctx.background(0);
+
+                        for (var y = 0; y < h; y += sample_size) {
+                            for (var x = 0; x < w; x += sample_size) {
+                                var pos = (x + y * w) * 4;
+                                var r = data[pos];
+                                var g = data[pos + 1];
+                                var b = data[pos + 2]; // first check if it's not the first frame, but
+                                // seeing of when the previous_frame array
+                                // is not we empty, and then only draw something if
+                                // a significant colour difference there's
+                                if (
+                                    previous_frame[pos] &&
+                                    Math.abs(previous_frame[pos] - r) > threshold
+                                ) {
+                                    // push the x, y and rgb values into the motion array
+                                    motion.push({ x: x, y: y, r: r, g: g, b: b });
+                                } // store these colour values to compare to the next frame
+                                previous_frame[pos] = r;
+                            }
+                        }
+                        return motion;
+                    }
+                }
+            }
+
+            /*********************************
+                  getUserMedia returns a Promise
+                  resolve - returns a MediaStream Object
+                  reject returns one of the following errors
+                  AbortError - generic unknown cause
+                  NotAllowedError (SecurityError) - user rejected permissions
+                  NotFoundError - missing media track
+                  NotReadableError - user permissions given but hardware/OS error
+                  OverconstrainedError - constraint video settings preventing
+                  TypeError - audio: false, video: false
+                  *********************************/
+        </script>
+
+        <div class="control-container">
+            <span id="btnStart" class="ctrl-btn">START RECORDING</span>
+            <span id="btnStop" class="ctrl-btn">STOP RECORDING</span>
+        </div>
+    </div>
+
+
+    <div id="Monitor">
+        <div class="monitorMain">
+
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="./js/index.js"></script>
+
+</body>
+
 </html>

@@ -1,21 +1,3 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
 var app = {
     // Application Constructor
     initialize: function() {
@@ -41,6 +23,84 @@ var app = {
 
         console.log('Received Event: ' + id);
     }
+
+    
 };
+
+
+/*||||||||||||||||||||||||||||||||--Navbar Menu Animations--||||||||||||||||||||||||||||||||||*/
+
+function navAnimate() {             //Fade in effect on open
+    $("#sideMenu a").show(400);     
+    $("#sideMenu").animate({
+        width:'50vw'
+    });
+    $("#nav-container").css("display","flex");
+};
+
+function closeMenu(){
+    $("#sideMenu a").hide(1000);
+    $("#sideMenu").animate({
+        width:'0px'
+    },
+    function(){$("#nav-container").hide(1000)});
+}
+
+function backAnimate(){
+    $("#BackButton").click(function(){
+        $("#Monitor").animate({
+            height:"0vh"
+        });
+    
+        $("#Record").animate({
+            height:"0vh"
+        });
+        $("#BackButton").hide(200);
+    })
+}
+/*|||||||||||||||||||||||||||||||||||--Navbar Menu Options--|||||||||||||||||||||||||||||||||||||*/
+
+function navOptionSelect(x) {               //Menu Animations
+    
+    if(x==1){                               //to open Home menu
+        $("#BackButton").hide();
+        $("#Monitor").animate({
+            height:"0vh"
+        });
+        $("#Record").animate({
+            height:"0vh"
+        });
+        
+        closeMenu();
+    }
+
+    if(x == 2){
+        $("#BackButton").show(200).css('color','white');          //to open Record menu
+        $("#Record").animate({
+            height:'100vh'
+        });
+        $("#Monitor").animate({
+            height:"0vh"
+        });
+    }
+    
+    if(x == 3){                             //to open Monitor menu
+        $("#BackButton").show(200).css('color','rgb(236,180,51)');
+        $("#Monitor").animate({
+            height:'100vh'
+        });
+        $("#Record").animate({
+            height:"0vh"
+        });
+    }   
+
+    closeMenu();
+};
+
+/*||||||||||||||||||||||||||||||||--Functions refreshed on page load for smooth transitions--||||||||||||||||||||||||||||||||||*/
+$( document ).ready(function() {        
+    backAnimate();
+});
+  
 
 app.initialize();

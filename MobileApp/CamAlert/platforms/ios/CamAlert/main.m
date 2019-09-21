@@ -17,10 +17,19 @@
  under the License.
  */
 //
-// Prefix header for all source files of the 'HelloCordova' target in the 'HelloCordova' project
+//  main.m
+//  CamAlert
+//
+//  Created by ___FULLUSERNAME___ on ___DATE___.
+//  Copyright ___ORGANIZATIONNAME___ ___YEAR___. All rights reserved.
 //
 
-#ifdef __OBJC__
-    #import <Foundation/Foundation.h>
-    #import <UIKit/UIKit.h>
-#endif
+#import <UIKit/UIKit.h>
+
+int main(int argc, char* argv[])
+{
+    @autoreleasepool {
+        int retVal = UIApplicationMain(argc, argv, nil, @"AppDelegate");
+        return retVal;
+    }
+}
