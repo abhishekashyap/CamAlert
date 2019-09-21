@@ -15,13 +15,21 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    display:grid;
+    grid-template-rows:10% 80%;
+    grid-row-gap: 5%;
 }
 
 .active{
     color: rgb(28, 166, 140)
 }
 
-
+.process
+{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
 .upload {
   position: relative;
   width: 400px;
