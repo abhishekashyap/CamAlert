@@ -33,7 +33,7 @@ var app = {
 function navAnimate() {             //Fade in effect on open
     $("#sideMenu a").show(400);     
     $("#sideMenu").animate({
-        width:'240px'
+        width:'50vw'
     });
     $("#nav-container").css("display","flex");
 };
@@ -75,7 +75,7 @@ function navOptionSelect(x) {               //Menu Animations
     }
 
     if(x == 2){
-        $("#BackButton").show(200);          //to open Record menu
+        $("#BackButton").show(200).css('color','white');          //to open Record menu
         $("#Record").animate({
             height:'100vh'
         });
@@ -85,7 +85,7 @@ function navOptionSelect(x) {               //Menu Animations
     }
     
     if(x == 3){                             //to open Monitor menu
-        $("#BackButton").show(200);
+        $("#BackButton").show(200).css('color','rgb(236,180,51)');
         $("#Monitor").animate({
             height:'100vh'
         });

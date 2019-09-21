@@ -58,10 +58,10 @@ body {
     display: block;
     width: 0;
     height: 100vh;
-    background-color: #5677fc;
+    background-color: #000080;
     overflow: hidden;
     box-shadow: 40vw 0vw 30vh rgba(0, 0, 0, 0.616);
-    font-size: 4vh;
+    font-size: 6vw;
     transition: all 0.1s;
 }
 
@@ -145,15 +145,17 @@ body {
 /* Different Menus */
 
 #Record {
-    /*Record Menu*/
     position: absolute;
     width: 100vw;
+    height:0;
     top: 0;
-    background-color: bisque;
+    overflow: hidden;
+    /* background-size: cover; */
+    /* background-position: center; */
+    background-image: url(../img/recordbg.jpg);
 }
 
 #Monitor {
-    /*Monitor Menu*/
     position: absolute;
     width: 100vw;
     height: 0;
@@ -163,7 +165,6 @@ body {
     background-position: center;
     background-color: white;
     overflow: hidden;
-    /* text-align: center; */
 }
 
 #ContactUs {
@@ -180,16 +181,43 @@ body {
     width: 90vw;
     margin: 10vh 4vw;
 }
+
 .recordMain {
     background-color: black;
     border: 1vw solid rgb(102, 102, 102);
     border-radius: 3%;
-    height: 25vh;
+    height: 30vh;
     width: 90vw;
-    margin: 10vh 4vw;
+    margin: 1vh 4vw 0 4vw;
 }
 .screen
 {
-    height:50%;
+    height:100%;
     width:100%;
+}
+
+.control-container
+{
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+    margin:5vh 2vw 5vh 2vw;
+    align-items: center;
+}
+.ctrl-btn
+{
+    background:rgb(255, 255, 255);
+    border: 1vw solid white;
+    color: black;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 4vw;
+    width: 50%;
+    border-radius: 5%;
+    margin: 2px 2px;
+    cursor: pointer;
+    font-family: 'century gothic', Arial, sans-serif;
 }
