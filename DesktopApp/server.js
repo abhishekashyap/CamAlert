@@ -45,7 +45,7 @@ app.use(express.static(__dirname + '/img'));
 app.get("/monitor.html", (req, res) => {
   console.log("accessed monitor");
   res.sendFile(path.join(__dirname, "Layout/html/monitor.html"));
-  res.sendFile(path.join(__dirname, "Layout/html/monitor-electron.html"));
+  // res.sendFile(path.join(__dirname, "Layout/html/monitor-electron.html"));
   //device_type = req.device.type;
 });
 app.get("/record.html", (req, res) => {
@@ -97,7 +97,7 @@ setInterval(() => {
   const image = cv.imencode(".jpg", frame).toString("base64");
 
   // The absolute path of the new file with its name
-  var filepath = "img/";
+  var filepath = "Layout/img/";
 
   // Save with a buffer as content from a base64 image
   fs.writeFile(
@@ -133,8 +133,8 @@ setInterval(() => {
   const rembrandt = new Rembrandt({
     // `imageA` and `imageB` can be either Strings (file path on node.js,
     // public url on Browsers) or Buffers
-    imageA: "img/img0.jpg",
-    imageB: "img/img1.jpg",
+    imageA: "Layout/img/img0.jpg",
+    imageB: "Layout/img/img1.jpg",
 
     // Needs to be one of Rembrandt.THRESHOLD_PERCENT or Rembrandt.THRESHOLD_PIXELS
     thresholdType: Rembrandt.THRESHOLD_PIXELS,
@@ -183,8 +183,8 @@ setInterval(() => {
 }, 1000);
 
 //console.log(typeof(ip));
-// server.listen(PORT, '192.168.43.30', function () {
-server.listen(PORT, "localhost", function() {
+server.listen(PORT, '192.168.43.30', function () {
+// server.listen(PORT, "localhost", function() {
   console.log("Express server listening on port ", PORT);
 });
 
