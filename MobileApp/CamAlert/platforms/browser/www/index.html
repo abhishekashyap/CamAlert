@@ -1,53 +1,65 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
 
 <head>
-    <!--
-        Customize this policy to fit your own app's needs. For more guidance, see:
-            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
-        Some notes:
-            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-                * Enable inline JS: add 'unsafe-inline' to default-src
-        -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-    <title>Hello World</title>
+    <link rel="stylesheet" type="text/css" href="./css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>CamgirlzXXX</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
 </head>
 
 <body>
-    <div class="app">
-        <div class="container" id="cont1">
-            <h1 style="color: white; font-size: 6vh; margin-top: 41vh ;font-family: 'Signika', sans-serif;">Record</h1>
+    <!--Navbar Starts-->
+    <div id="nav-container">
+        <div id="sideMenu" class="navmenu">
+            <a href="#" class="closebtn" onclick="closeMenu()">&times;</a>
+            <br />
+                <a class="nav-links" href="#" onclick="navOptionSelect(1)"><i class="fa fa-home"></i>  Home</a>
+
+                <a class="nav-links" href="#" onclick="navOptionSelect(2)"><i class="fa fa-video-camera"></i>  Record</a>
+            
+                <a class="nav-links" href="#" onclick="navOptionSelect(3)"><i class="fa fa-desktop"></i>  Monitor</a>
+            
+                <a class="nav-links" href="#" id="ContactUs" onclick="navOptionSelect(4)"><i class="fa fa-user"></i>  Contact Us</a>
+            
         </div>
-        <div class="container" id="cont2">
-            <h1 style="color: white; font-size: 6vh; margin-top: 2vh ;font-family: 'Signika', sans-serif;">Monitor</h1>
-        </div>
+       <div id="navback" onclick="closeMenu()"></div>
     </div>
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
+
+    <!--Navbar Ends-->
+    <span id="NavButton" onclick="navAnimate()">&#9776;</span>
+    <span id="BackButton" onclick="backAnimate()">&larr;</span>
+    
+    <!-- Main options in the home page -->
+    <div class="container">
+        
+        <div id="cont1" onclick="navOptionSelect(2)">
+            <h1 class="heading" style="margin-top: 36vh">RECORD</h1>
+        </div>
+
+        <div id="cont2" onclick="navOptionSelect(3)">
+            <h1 class="heading" style="margin-top: 1.5vh">MONITOR</h1>
+        </div>
+    
+    </div>
+    
+    <div id="Record">
+
+    </div>
+
+    <div id="Monitor">
+
+    </div>
+    
+
+    <script type="text/javascript" src="./js/index.js"></script>
+
 </body>
 
 </html>

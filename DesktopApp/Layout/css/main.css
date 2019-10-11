@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 @font-face {
     font-family: "LitSans Medium";
     font-style: normal;
@@ -7,6 +7,9 @@
 }
 
 * {
+    padding: 0;
+    margin: 0;
+    -webkit-app-region: drag;
     padding: 0;
     margin: 0;
 }
@@ -31,6 +34,7 @@ a {
     flex-direction: column-reverse;
     background-size: cover;
     background-position: center;
+    transition: all 0.2s ease-out;
 }
 
 .element:hover .text {
@@ -39,23 +43,35 @@ a {
     background-color: rgba(0, 0, 0, 0.13);
 }
 
+.element:hover {
+    transform: scale(1.1);
+}
+
 #monitor {
-    background-image: url("../../img/monitor.jpg");
+    background-image: url("../img/monitor.jpg");
 }
 
 #record {
-    background-image: url("../../img/record.png");
+    background-image: url("../img/record.png");
 }
 
 #upload {
-    background-image: url("../../img/upload.jpg");
+    background-image: url("../img/upload.jpg");
 }
 
-.container {
-    /* padding: 0 10%; */
+body {
     height: 100vh;
     width: auto;
     background-size: cover;
+    background-position: center;
+    /* overflow: hidden; */
+}
+
+.container {
+    height: 100vh;
+    width: auto;
+    background-size: cover;
+    overflow: hidden;
 }
 
 .text {
@@ -64,17 +80,36 @@ a {
     text-align: center;
     padding: 10% 0;
     width: 100%;
-    height: 4%;
-    font-family: 'Roboto', sans-serif;
-    font-size: 20px;
+    height: 8%;
+    font-family: 'century gothic', Arial, sans-serif;
+    font-size: 30px;
 }
 
-.heading {
+.heading,
+.subheading {
     font-family: "LitSans Medium";
     font-style: normal;
     font-weight: normal;
     src: local("LitSans Medium"), url("LitSans-Medium.woff") format("woff");
     color: white;
     text-align: center;
-    animation: slide 3s;
+}
+
+.heading {
+    -webkit-animation: moving 2s ease forwards;
+    animation: moving 2s ease forwards;
+}
+
+.subheading {
+    -webkit-animation: moving 1.5s ease forwards;
+    animation: moving 1.5s ease forwards;
+}
+
+@keyframes moving {
+    from {
+        transform: translateY(0px);
+    }
+    to {
+        transform: translateY(-5vh);
+    }
 }

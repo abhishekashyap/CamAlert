@@ -5,25 +5,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=s, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../css/monitor.css">
-    <title>Desktop: Catch the theif</title>
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/monitor.css">
+    <link rel="stylesheet" href="css/monitor-responsive.css">
+    <title>Monior | CamAlert</title>
 </head>
 
 <body>
-    <div>
-        <ul>
-            <li class="left-nav"><a href="main.html">Home</a></li>
-            <li class="left-nav"><a class="active" href="monitor.html">Monitor</a></li>
-            <li class="left-nav"><a href="record.html">Record</a></li>
-            <li class="left-nav"><a href="process.html">Process</a></li>
-            <li class="right-nav"><a href="contact.html">Contact</a></li>
-        </ul>
-    </div>
-    <div class="monitor">
-        <div class="display">
-            Video will display here
+    <nav>
+        <a href="main.html" class="nav-items" style="justify-self: flex-start;display:flex;">
+            <img src="../img/logoblack.png" style="width:30%;">&nbsp;<span style="align-self: center;font-size:20px"> CamAlert</span>
+        </a>
+        <div>
+            <a class="nav-items" href="record.html">Record</a>
+            <a class="nav-items active" href="monitor.html">Monitor</a>
+            <a class="nav-items" href="upload.html">Upload</a>
         </div>
-    </div>
+        <a class="nav-items" href="about.html" style="justify-self: flex-end;">About Us</a>
+    </nav>
+
+    <div class="container service-graphic sg2">
+        <div class="screen monitor">
+            <div class="content">
+                <!-- <video src="" controls></video> -->
+                <img id="image" />
+            </div>
+            <div class="base">
+                <div class="grey-shadow"></div>
+                <div class="foot top"></div>
+                <div class="foot bottom"></div>
+            </div>
+        </div>
+
+        <!-- copied code -->
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+        <script>
+            const socket = io.connect("http://localhost:3000");
+            // const socket = io.connect('192.168.43.30:3000');
+            socket.on('image', data => {
+                console.log('data', data);
+                // console.log(image);
+                const imgElm = document.getElementById("image");
+                imgElm.src = 'data:image/jpeg;charset=utf-8;base64,' + data;
+            });
+        </script>
 </body>
 
 </html>

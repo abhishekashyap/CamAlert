@@ -6,6 +6,8 @@ const app = express();
 const device = require("express-device");
 const server = require("http").Server(app);
 const io = require("socket.io")(server);
+const notifier = require("node-notifier");
+const d = new Date(); // Create Date object
 
 const PORT = 3000;
 
@@ -37,16 +39,58 @@ if (device_type == 'mobile') {
 */
 
 // SERVING HTML PAGES
+app.use(express.static(__dirname + '/Layout'));
+app.use(express.static(__dirname + '/img'));
 
+app.get("/monitor.html", (req, res) => {
+  console.log("accessed monitor");
+  res.sendFile(path.join(__dirname, "Layout/html/monitor.html"));
+  res.sendFile(path.join(__dirname, "Layout/html/monitor-electron.html"));
+  //device_type = req.device.type;
+});
+app.get("/record.html", (req, res) => {
+  console.log("accessed record");
+  res.sendFile(path.join(__dirname, "Layout/html/record.html"));
+  //device_type = req.device.type;
+});
+app.get("/main.html", (req, res) => {
+  console.log("accessed main");
+  res.sendFile(path.join(__dirname, "Layout/html/main.html"));
+  //device_type = req.device.type;
+});
+app.get("/upload.html", (req, res) => {
+  console.log("accessed main");
+  res.sendFile(path.join(__dirname, "Layout/html/upload.html"));
+  //device_type = req.device.type;
+});
 app.get("/", (req, res) => {
-  console.log("accessed");
-  res.sendFile(path.join(__dirname, "index.html"));
+  console.log("accessed main");
+  res.sendFile(path.join(__dirname, "Layout/html/main.html"));
   //device_type = req.device.type;
 });
 
 // DOWNLOADING CAPTURED IMAGES
 
 var num = 0; // Used to initialize image number
+
+function notifyCall() {
+  notifier.notify({
+    title: "Alert !!!",
+    message:
+      "Intruder Detected\n" +
+      d.getDate() +
+      "-" +
+      d.getMonth() +
+      "-" +
+      d.getFullYear() +
+      "\n" +
+      d.getHours() +
+      ":" +
+      d.getMinutes(),
+    sound: "Sosumi",
+    timeout: 5
+  });
+}
 
 setInterval(() => {
   const frame = wCap.read();
@@ -93,10 +137,10 @@ setInterval(() => {
     imageB: "img/img1.jpg",
 
     // Needs to be one of Rembrandt.THRESHOLD_PERCENT or Rembrandt.THRESHOLD_PIXELS
-    thresholdType: Rembrandt.THRESHOLD_PERCENT,
+    thresholdType: Rembrandt.THRESHOLD_PIXELS,
 
     // The maximum threshold (0...1 for THRESHOLD_PERCENT, pixel count for THRESHOLD_PIXELS
-    maxThreshold: 0.01,
+    maxThreshold: 0.001,
 
     // Maximum color delta (0...255):
     maxDelta: 1,
@@ -109,16 +153,28 @@ setInterval(() => {
   });
 
   // Run the comparison
+  var res = true;
+
   rembrandt
     .compare()
-    .then(function(result) {
-      console.log("Passed:", result.passed);
-      console.log("Difference:", (result.threshold * 100).toFixed(2), "%");
-      console.log("Difference in pixels: ", result.threshold);
-      console.log("Composition image buffer:", result.compositionImage);
+    .then(
+      function(result) {
+        console.log("Passed:", result.passed);
+        console.log("Difference:", (result.threshold * 100).toFixed(2), "%");
+        console.log("Difference in pixels: ", result.threshold);
+        console.log("Composition image buffer:", result.compositionImage);
 
-      // Note that `compositionImage` is an Image when Rembrandt.js is run in the browser environment
-    })
+        console.log(typeof result.passed);
+        res = result.passed;
+
+        // Note that `compositionImage` is an Image when Rembrandt.js is run in the browser environment
+      },
+      res => {
+        if (res == true) {
+          notifyCall();
+        }
+      }
+    )
     .catch(e => {
       console.error(e);
     });
@@ -127,7 +183,8 @@ setInterval(() => {
 }, 1000);
 
 //console.log(typeof(ip));
-server.listen(PORT, function() {
+// server.listen(PORT, '192.168.43.30', function () {
+server.listen(PORT, "localhost", function() {
   console.log("Express server listening on port ", PORT);
 });
 

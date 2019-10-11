@@ -1,64 +1,74 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+@font-face {
+    font-family: "LitSans Medium";
+    font-style: normal;
+    font-weight: normal;
+    src: local("LitSans Medium"), url("LitSans-Medium.woff") format("woff");
+}
+
 body {
     margin: 0;
-}
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: rgb(85, 94, 91);
-}
-
-.left-nav {
-    float: left;
-}
-
-.right-nav {
-    float: right;
-}
-
-li a {
-    display: block;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    padding: 1em;
-    text-decoration: none;
-}
-
-li a:hover:not(.active) {
-    background-color: #EDEDED;
-}
-
-.active {
-    background-color: #EDEDED;
-}
-
-.record {
     height: 100vh;
-    width: auto;
-    background-color: #F54C4C;
-    overflow-x: hidden;
+    background-color: rgba(25, 91, 122, 0.904);
+    background-image: url('../img/recordbg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: "LitSans Medium";
+    font-style: normal;
+    font-weight: normal;
 }
 
-.display {
-    background-color: white;
-    border: 1vh solid black;
-    margin: 5vh 2vh 2vh 2vh;
-    height: 70vh;
-    width: auto;
+.btn {
+    font-size: 1vw;
+    margin: 1vw;
+    color: white;
+    padding: 0.6vw;
+    height: 8vh;
+    width: 18vw;
+    border-width: .5vw;
+    border-color: white;
+    background: transparent;
+    transition: 0.5s ease-in-out;
 }
 
-.circle {
-    background-image: linear-gradient();
-    border: 1vh solid white;
-    color: rgb(133, 0, 0);
-    padding: 20px;
+.btn:hover {
+    margin: 1vw;
+    color: #16a085;
+    padding: 0.6vw;
+    border-width: 0.2vw;
+    border-color: white;
+    background: white;
+}
+
+main {
+    /* width: auto;
+    height: auto;
+    display: flex; */
+    /* flex-direction: column; */
+    /* align-items: center; */
+    /* justify-content: center; */
+}
+
+.vid-container {
+    margin-top: 15vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.player {
+    border: 1px solid white;
+    height: 45vh;
+    width: 36vw;
+    padding: 1vw;
+    margin: 1vw;
+}
+
+.btn-container {
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 4vw;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 100%;
+}
+
+.active{
+    color:rgb(243,70,76);
 }
