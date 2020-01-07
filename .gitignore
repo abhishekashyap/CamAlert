@@ -28,6 +28,7 @@
 
 # OS generated files #
 ######################
+# Use $sudo find / -name “.DS_Store” -depth -exec rm {} \; to remove all .DS_Store files
 MobileApp/.DS_Store
 MobileApp/Design/.DS_Store
 .DS_Store

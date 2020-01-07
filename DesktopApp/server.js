@@ -183,7 +183,7 @@ setInterval(() => {
 }, 1000);
 
 //console.log(typeof(ip));
-server.listen(PORT, '192.168.43.30', function () {
+server.listen(PORT, 'localhost', function () {
 // server.listen(PORT, "localhost", function() {
   console.log("Express server listening on port ", PORT);
 });
