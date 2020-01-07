@@ -28,6 +28,8 @@
 
 # OS generated files #
 ######################
+MobileApp/.DS_Store
+MobileApp/Design/.DS_Store
 .DS_Store
 .DS_Store?
 ._*
