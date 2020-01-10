@@ -11,7 +11,9 @@
 
 ## Screenshots
 
-| ![Homepage](MobileApp/screenshots/1.png "Homepage") | ![Menu](MobileApp/screenshots/2.png "Menu") | ![NowPlaying](MobileApp/screenshots/3.png "Landing page") |
+<img src="MobileApp/screenshots/1.png" alt="Homepage" height="300" width="400">
+<img src="MobileApp/screenshots/2.png" alt="Menu" height="300" width="400">
+<img src="MobileApp/screenshots/3.png" alt="Landing page" height="300" width="400">
 
 ## Getting Started
 
