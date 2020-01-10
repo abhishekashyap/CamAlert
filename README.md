@@ -5,8 +5,9 @@
   <br>CamAlert<br>
 </h1>
 
-CamAlert turns old camera hardware or existing camera into intelligent camera system. Currently supports:
-* Motion detection
+<h4 align="center">
+    CamAlert turns old camera hardware or existing camera into intelligent camera system
+</h4>
 
 ## Getting Started
 
