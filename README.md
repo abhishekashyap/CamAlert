@@ -9,9 +9,16 @@
     CamAlert turns old camera hardware or existing camera into intelligent camera system
 </h4>
 
+## Screenshots
+
+![Homepage](MobileApp/screenshots/1.png "Homepage")
+![Menu](MobileApp/screenshots/2.png "Menu")
+![NowPlaying](MobileApp/screenshots/3.png "Landing page")
+
 ## Getting Started
 
-The app is based on electron with express server and uses OpenCV for AI features.
+The desktop app is based on electron with express server and uses OpenCV for AI features.
+The mobile app is wrapped in Cordova
 
 ### Installing
 
@@ -27,12 +34,6 @@ To start the app use
 ```
 $npm start
 ```
-
-<!-- ## Screenshots -->
-
-<!-- ![Homepage](screenshots/red5.png "Landing page") -->
-<!-- ![Playlist](screenshots/yellow5.png "Playlist page") -->
-<!-- ![NowPlaying](screenshots/pink5.png "Now playing") -->
 
 ## Downloads
 <!-- * [Releases](https://github.com/abhishekashyap/YoutubeMusic/releases) -->
