@@ -11,9 +11,7 @@
 
 ## Screenshots
 
-<img src="MobileApp/screenshots/1.png" alt="Homepage" height="222" width="373">
-<img src="MobileApp/screenshots/2.png" alt="Menu" height="222" width="373">
-<img src="MobileApp/screenshots/3.png" alt="Landing page" height="222" width="373">
+| <img src="MobileApp/screenshots/1.png" alt="Homepage" height="222" width="373"> | <img src="MobileApp/screenshots/2.png" alt="Menu" height="222" width="373"> | <img src="MobileApp/screenshots/3.png" alt="Landing page" height="222" width="373"> |
 
 ## Getting Started
 
