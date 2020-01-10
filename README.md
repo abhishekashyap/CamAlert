@@ -52,7 +52,7 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduc
 ## Team
 
 | [![Abhishek Kashyap](https://github.com/abhishekashyap.png?size=100)](https://github.com/abhishekashyap) | [![Kartik Choudhary](https://github.com/kartik918.png?size=100)](https://github.com/kartik918) | [![Nischey Badyal](https://github.com/NB134.png?size=100)](https://github.com/NB134) | [![Pulkit Banta](https://github.com/PulkitBanta.png?size=100)](https://github.com/PulkitBanta) | [![Shubham Goel](https://github.com/shubhamgoel2525.png?size=100)](https://github.com/shubhamgoel2525)
-| :------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: |
+| :-----------------------------------------------------------------------------------:| :-----------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: |
 |                     [Abhishek Kashyap](https://github.com/abhishekashyap)                     |                          [Kartik Choudhary](https://github.com/kartik918)                          |                       [Nischey Badyal](https://github.com/NB134)|                          [Pulkit Banta](https://github.com/PulkitBanta)                          |                          [Shubham Goel](https://github.com/shubhamgoel2525)                          |
 
 ## License
