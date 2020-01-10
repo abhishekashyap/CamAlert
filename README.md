@@ -1,11 +1,9 @@
 <h1 align="center">
   <a href="https://github.com/abhishekashyap/CamAlert">
-    <img alt="CamAlert icon" src="CamAlert.png" width="400">
+    <img alt="CamAlert icon" src="CamAlert.png" width="300">
   </a>
-  <br>CamAlert 📹<br>
+  <br>CamAlert<br>
 </h1>
-
-# CamAlert
 
 CamAlert turns old camera hardware or existing camera into intelligent camera system. Currently supports:
 * Motion detection
