@@ -11,9 +11,9 @@
 
 ## Screenshots
 
-![Homepage](MobileApp/screenshots/1.png "Homepage")
-![Menu](MobileApp/screenshots/2.png "Menu")
-![NowPlaying](MobileApp/screenshots/3.png "Landing page")
+![Homepage](MobileApp/screenshots/1.png =400x300 "Homepage")
+![Menu](MobileApp/screenshots/2.png =400x300 "Menu")
+![NowPlaying](MobileApp/screenshots/3.png =400x300 "Landing page")
 
 ## Getting Started
 
