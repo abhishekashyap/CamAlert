@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "canvas": "^2.6.0",
-    "electron": "^9.4.0",
+    "electron": "^13.6.6",
     "express": "^4.17.1",
     "express-device": "^0.4.2",
     "express-fileupload": "^1.1.6-alpha.4",
